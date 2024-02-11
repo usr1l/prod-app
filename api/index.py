@@ -1,7 +1,14 @@
+import os
+from flask import Flask, request, session, redirect
+from flask_cors import CORS
+from flask_login import LoginManager
 
-from flask import Flask
 
 app = Flask(__name__)
+
+
+# Application Security
+CORS(app, supports_credentials=True)
 
 
 @app.route("/api/healthchecker", methods=["GET"])
