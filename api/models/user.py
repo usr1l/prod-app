@@ -1,21 +1,26 @@
 from sqlalchemy import Column, Integer, String
 from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalchemy.orm import relationship, Mapped, mapped_column
+from flask_login import UserMixin
 from datetime import datetime
 from . import db
 
 # User Model
 
 
-class User(db.Model):
-    id: Mapped[int] = mapped_column(primary_key=True)
-    username: Mapped[str] = mapped_column(nullable=False, unique=True)
-    firstname: Mapped[str] = mapped_column(nullable=False)
-    lastname: Mapped[str] = mapped_column(nullable=False)
-    email: Mapped[str] = mapped_column(nullable=False, unique=True)
-    _hashed_password: Mapped[str] = mapped_column(nullable=False)
-    created_at: Mapped[str] = mapped_column(
-        nullable=False, default=datetime.utcnow)
+class User(db.Model, UserMixin):
+    __tablename__ = 'users'
+
+    # if environment == "production":
+    #     __table_args__ = {'schema': SCHEMA}
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(40), nullable=False, unique=True)
+    firstname = db.Column(db.String(40), nullable=False)
+    lastname = db.Column(db.String(40), nullable=False)
+    email = db.Column(db.String(255), nullable=False, unique=True)
+    _hashed_password = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False,
+                           default=datetime.utcnow)
 
     @property
     def password(self):
