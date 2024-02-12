@@ -9,7 +9,6 @@ from api.config import Config
 from api.models import db, User
 from api.routes import auth_routes
 
-
 app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
@@ -45,3 +44,6 @@ def healthchecker():
 #         httponly=True
 #     )
 #     return response
+
+# if __name__ == "__main__":
+#     app.run()
