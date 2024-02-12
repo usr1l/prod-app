@@ -11,13 +11,13 @@ import '@app/globals.css';
 
 export default function Navigation() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    // dispatch(thunkAuthenticate())
-    // .then((res) => {
-    //   dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
-    // });
-    dispatch(thunkTest());
-  }, [ dispatch ]);
+  // useEffect(() => {
+  //   // dispatch(thunkAuthenticate())
+  //   // .then((res) => {
+  //   //   dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
+  //   // });
+  //   dispatch(thunkTest());
+  // }, [ dispatch ]);
 
   const sessionUser = useSelector(state => state.session.user);
 

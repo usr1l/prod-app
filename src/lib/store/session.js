@@ -10,17 +10,17 @@ const initialState = {
   user: null
 };
 
-export const thunkTest = createAsyncThunk(
-  'session/test',
-  async (data, { dispatch }) => {
-    const response = await instance.get('/auth/healthchecker');
-    if (response.data) {
-      console.log(response.data)
-      return response.data;
-    };
-    return response;
-  }
-);
+// export const thunkTest = createAsyncThunk(
+//   'session/test',
+//   async (data, { dispatch }) => {
+//     const response = await instance.get('/auth/healthchecker');
+//     if (response.data) {
+//       console.log(response.data)
+//       return response.data;
+//     };
+//     return response;
+//   }
+// );
 
 // login user thunk
 export const thunkLogin = createAsyncThunk(
