@@ -12,8 +12,8 @@ from datetime import datetime
 #         add_prefix_for_prod("users.id")), primary_key=True)
 # )
 
-if environment == "production":
-    deck_users.schema = SCHEMA
+# if environment == "production":
+#     deck_users.schema = SCHEMA
 
 
 class User(db.Model, UserMixin):
