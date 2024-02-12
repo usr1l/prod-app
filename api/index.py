@@ -13,14 +13,15 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-Migrate(app, db)
+# Migrate(app, db)
 
 # Application Security
-CORS(app, supports_credentials=True)
+# CORS(app, supports_credentials=True)
+# CORS(app)
 
-if os.environ.get('FLASK_ENV') == 'production':
-    with app.app_context():
-        db.create_all()
+# if os.environ.get('FLASK_ENV') == 'production':
+#     with app.app_context():
+#         db.create_all()
 
 
 @app.route("/api/healthchecker", methods=["GET"])
