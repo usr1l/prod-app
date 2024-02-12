@@ -10,9 +10,9 @@ from api.routes import auth_routes
 
 
 app = Flask(__name__)
-# app.config.from_object(Config)
+app.config.from_object(Config)
 # db.init_app(app)
-# app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(auth_routes, url_prefix='/api/auth')
 # Migrate(app, db)
 
 # Application Security
