@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "flask-dev": "FLASK_DEBUG=1 pip3 install -r requirements.txt && python3 -m flask --app api run -p 8000 --reload",
-    "flask-local-dev": "FLASK_DEBUG=1 python3 -m flask --app api run -p 8000 --reload",
+    "flask-dev": "FLASK_DEBUG=1 pip3 install -r requirements.txt && python3 -m flask --app api/index run -p 8000 --reload",
+    "flask-local-dev": "FLASK_DEBUG=1 python3 -m flask --app api/index run -p 8000 --reload",
     "next-dev": "next dev",
     "dev": "concurrently \"npm run next-dev\" \"npm run flask-dev\"",
     "local-dev": "concurrently \"npm run next-dev\" \"npm run flask-local-dev\"",
@@ -39,6 +39,5 @@
     "postcss": "^8",
     "redux-logger": "^3.0.6",
     "tailwindcss": "^3.3.0"
-  },
-  "proxy": "http://localhost:8000"
+  }
 }
