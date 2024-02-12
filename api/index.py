@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-# Migrate(app, db)
+Migrate(app, db)
 
 # Application Security
 CORS(app, supports_credentials=True)
@@ -39,7 +39,3 @@ def healthchecker():
 #         httponly=True
 #     )
 #     return response
-
-if os.environ.get('FLASK_ENV') == 'development':
-    if __name__ == "__main__":
-        app.run()
