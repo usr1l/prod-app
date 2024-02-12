@@ -11,9 +11,9 @@ from api.routes import auth_routes
 
 app = Flask(__name__)
 app.config.from_object(Config)
-# db.init_app(app)
+db.init_app(app)
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-# Migrate(app, db)
+Migrate(app, db)
 
 # Application Security
 CORS(app, supports_credentials=True)
@@ -21,6 +21,11 @@ CORS(app, supports_credentials=True)
 # if os.environ.get('FLASK_ENV') == 'production':
 #     with app.app_context():
 #         db.create_all()
+
+
+@app.route('/api/', methods=['GET'])
+def hello_world():
+    return "Hello, World!"
 
 
 @app.route("/api/healthchecker", methods=["GET"])
