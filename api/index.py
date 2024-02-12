@@ -24,10 +24,9 @@ CORS(app, supports_credentials=True)
 #         db.create_all()
 
 
-class handler(BaseHTTPRequestHandler):
-    @app.route('/api/', methods=['GET'])
-    def hello_world():
-        return "Hello, World!"
+@app.route('/api/', methods=['GET'])
+def hello_world():
+    return "Hello, World!"
 
 
 @app.route("/api/healthchecker", methods=["GET"])
