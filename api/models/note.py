@@ -1,5 +1,6 @@
-from . import db, environment, SCHEMA, add_prefix_for_prod
+from . import db, environment, SCHEMA
 from datetime import datetime
+
 
 class Note(db.Model):
     __tablename__ = 'notes'
@@ -10,12 +11,12 @@ class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
     content = db.Column(db.Text, nullable=False)
-    owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False,
+                           default=datetime.utcnow)
     last_edit = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     owner = db.relationship("User", back_populates="notes", single_parent=True)
-
 
     @classmethod
     def add_notes(cls, notes):
@@ -30,9 +31,9 @@ class Note(db.Model):
 
         if isinstance(notes, dict):
             new_notes = cls(
-                    title=notes["title"],
-                    content=notes["content"],
-                    owner_id=notes["ownerId"]
+                title=notes["title"],
+                content=notes["content"],
+                owner_id=notes["ownerId"]
             )
 
         return new_notes if new_notes else None

@@ -1,12 +1,9 @@
-from . import db, environment, SCHEMA, add_prefix_for_prod
+from . import db, environment, SCHEMA
 from datetime import datetime
 
 
 class Task(db.Model):
     __tablename__ = 'tasks'
-
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     label = db.Column(db.String, nullable=False)
@@ -17,7 +14,7 @@ class Task(db.Model):
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow)
     owner_id = db.Column(db.Integer, db.ForeignKey(
-        add_prefix_for_prod("users.id")), nullable=False)
+        "users.id"), nullable=False)
     last_edit = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     owner = db.relationship("User", back_populates="tasks", single_parent=True)

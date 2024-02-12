@@ -1,4 +1,4 @@
-from . import db, environment, SCHEMA, add_prefix_for_prod
+from . import db, environment, SCHEMA
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
@@ -7,9 +7,9 @@ deck_users = db.Table(
     "deck_users",
     db.Model.metadata,
     db.Column("deck_id", db.Integer, db.ForeignKey(
-        add_prefix_for_prod("decks.id")), primary_key=True),
+        "decks.id"), primary_key=True),
     db.Column("user_id", db.Integer, db.ForeignKey(
-        add_prefix_for_prod("users.id")), primary_key=True)
+        "users.id"), primary_key=True)
 )
 
 if environment == "production":

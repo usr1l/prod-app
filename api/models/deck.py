@@ -1,4 +1,4 @@
-from . import db, environment, SCHEMA, add_prefix_for_prod, deck_users
+from . import db, environment, SCHEMA, deck_users
 from datetime import datetime
 
 # # many-to-many table for decks and flashcards
@@ -13,13 +13,10 @@ from datetime import datetime
 class Deck(db.Model):
     __tablename__ = "decks"
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40), nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey(
-        add_prefix_for_prod("users.id")), nullable=False)
+        "users.id"), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow)
     last_edit = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
