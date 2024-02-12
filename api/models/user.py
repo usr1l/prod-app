@@ -3,14 +3,14 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
 
-deck_users = db.Table(
-    "deck_users",
-    db.Model.metadata,
-    db.Column("deck_id", db.Integer, db.ForeignKey(
-        add_prefix_for_prod("decks.id")), primary_key=True),
-    db.Column("user_id", db.Integer, db.ForeignKey(
-        add_prefix_for_prod("users.id")), primary_key=True)
-)
+# deck_users = db.Table(
+#     "deck_users",
+#     db.Model.metadata,
+#     db.Column("deck_id", db.Integer, db.ForeignKey(
+#         add_prefix_for_prod("decks.id")), primary_key=True),
+#     db.Column("user_id", db.Integer, db.ForeignKey(
+#         add_prefix_for_prod("users.id")), primary_key=True)
+# )
 
 if environment == "production":
     deck_users.schema = SCHEMA
@@ -31,15 +31,15 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow)
 
-    tasks = db.relationship("Task", back_populates="owner",
-                            cascade="all, delete-orphan")
-    notes = db.relationship("Note", back_populates="owner",
-                            cascade="all, delete-orphan")
-    decks = db.relationship("Deck", back_populates="owner",
-                            cascade="all, delete-orphan")
+    # tasks = db.relationship("Task", back_populates="owner",
+    #                         cascade="all, delete-orphan")
+    # notes = db.relationship("Note", back_populates="owner",
+    #                         cascade="all, delete-orphan")
+    # decks = db.relationship("Deck", back_populates="owner",
+    #                         cascade="all, delete-orphan")
 
-    saved_decks = db.relationship(
-        "Deck", secondary=deck_users, back_populates="deck_users")
+    # saved_decks = db.relationship(
+    #     "Deck", secondary=deck_users, back_populates="deck_users")
 
     @property
     def password(self):
