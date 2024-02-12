@@ -40,6 +40,6 @@ def healthchecker():
 #     )
 #     return response
 
-
-if __name__ == "__main__":
-    app.run()
+if os.environ.get('FLASK_ENV') == 'development':
+    if __name__ == "__main__":
+        app.run()
