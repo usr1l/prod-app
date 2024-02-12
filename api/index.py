@@ -23,6 +23,11 @@ if os.environ.get('FLASK_ENV') == 'production':
         db.create_all()
 
 
+@app.route("/api/healthchecker", methods=["GET"])
+def healthchecker():
+    return {"status": "success", "message": "Integrate Flask Framework with Next.js, AppRoute"}
+
+
 # @app.after_request
 # def inject_csrf_token(response):
 #     response.set_cookie(

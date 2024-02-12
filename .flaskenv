@@ -1,4 +1,4 @@
-FLASK_APP=api
+FLASK_APP=api/index.py
 FLASK_DEBUG=true
 FLASK_ENV=development
 SECRET_KEY=f534f376674700cc6c7aa813ab1d6953
