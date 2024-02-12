@@ -1,4 +1,4 @@
-from . import db, environment, SCHEMA
+from . import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 class FlashCard(db.Model):
@@ -10,7 +10,7 @@ class FlashCard(db.Model):
   id = db.Column(db.Integer, primary_key = True)
   front = db.Column(db.Text, nullable=False)
   back = db.Column(db.Text, nullable=False)
-  deck_id = db.Column(db.Integer, db.ForeignKey("decks.id"), nullable=False)
+  deck_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("decks.id")), nullable=False)
   created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
   last_edit = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
