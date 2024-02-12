@@ -18,9 +18,9 @@ Migrate(app, db)
 # Application Security
 CORS(app, supports_credentials=True)
 
-if os.environ.get('FLASK_ENV') == 'production':
-    with app.app_context():
-        db.create_all()
+# if os.environ.get('FLASK_ENV') == 'production':
+#     with app.app_context():
+#         db.create_all()
 
 
 @app.route("/api/healthchecker", methods=["GET"])
