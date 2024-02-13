@@ -3,9 +3,9 @@
 import Card, { FlashCard, TiltCard } from '@components/Card';
 import OpenModalButton from '@components/OpenModalButton';
 import LoginFormModal from '@components/SignupFormModal';
-import '@app/globals.css';
 import { useDispatch } from 'react-redux';
 import { thunkLogin } from '@lib/store/session';
+import '@app/globals.css';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -13,18 +13,13 @@ export default function Home() {
     dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
   };
   return (
-    <main className="relative flex flex-col items-center bg-sage border-8 border-red-900">
+    <main className="relative w-auto h-screen flex flex-col justify-center items-center bg-grey-400 box-border tracking-wide">
       <div className='flex items-center'>
-        <FlashCard front='Front' back='Back' />
+        <OpenModalButton
+          buttonText='Open Modal'
+          modalComponent={<LoginFormModal />}
+        />
       </div>
-      <div>
-        <TiltCard />
-      </div>
-      <OpenModalButton
-        buttonText='Open Modal'
-        modalComponent={<LoginFormModal />}
-      />
-      <button onClick={handleMouseClick}>This is a button</button>
     </main>
   );
-}
+};

@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import current_user, login_user, logout_user, login_required
-from flask_cors import cross_origin
 from api.models import User, db
 from api.forms import LoginForm
 from api.forms import SignUpForm
@@ -20,6 +19,11 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
+@auth_routes.route('/test')
+def test():
+    return {'test': 'test'}
+
+
 @auth_routes.route('/')
 def authenticate():
     """
@@ -28,11 +32,6 @@ def authenticate():
     if current_user.is_authenticated:
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}
-
-
-@auth_routes.route('/test')
-def test():
-    return {'test': 'test'}
 
 
 @auth_routes.route('/login', methods=['POST'])

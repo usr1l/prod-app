@@ -22,9 +22,7 @@ export default function Navigation() {
       className="flex sticky items-center justify-between h-20 bg-white top-0 right-0 left-0 z-50 w-auto border-b border-gray-400 box-border px-6 p-2"
     >
       <SiteLogo />
-      {sessionUser && (
-        <ProfileButton user={sessionUser} />
-      )}
+      <ProfileButton user={sessionUser} />
     </div>
   );
 }

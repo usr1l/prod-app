@@ -5,14 +5,15 @@ import StoreProvider from "./StoreProvider";
 import Navigation from "@components/Navigation";
 import { ModalProvider, Modal } from "@context/Modal";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import Error from "./error";
+import '@app/globals.css';
+import BottomNav from "@components/BottomNav";
 
 // allow use of fontawesome icons
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import Error from "./error";
-import "./globals.css";
 
 const inter = Inter({ subsets: [ "latin" ] });
 
@@ -22,18 +23,16 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-
-
-
   return (
     <React.StrictMode >
       <html lang="en">
-        <body className="h-auto w-auto flex flex-col box-border">
+        <body className="w-auto flex flex-col box-border h-auto">
           <ModalProvider>
             <StoreProvider>
               <Navigation />
               <ErrorBoundary fallback={<Error />} />
               {children}
+              <BottomNav />
               <Modal />
             </StoreProvider>
           </ModalProvider>

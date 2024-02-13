@@ -1,7 +1,7 @@
 'use client'
 
 import axios from "axios";
-import { createSlice, createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import instance from "@util/axios";
 
 // session initial state
@@ -16,8 +16,11 @@ export const thunkTest = createAsyncThunk(
   async (data, { dispatch }) => {
     const response = await instance.get('/auth/test');
     if (response.data) {
-      console.log(response.data)
+      console.log(response.data);
       return response.data;
+    };
+    if (response.error) {
+      console.log(response.errors);
     };
     return response;
   }
@@ -28,9 +31,13 @@ export const thunkLogin = createAsyncThunk(
   'session/login',
   async ({ email, password }, { dispatch }) => {
     const response = await instance.post('/auth/login', { email, password });
+    if (response.data?.errors) {
+      return response.data.errors;
+    };
+
     if (response.data) {
       dispatch(authenticate(response.data));
-      return response.data;
+      return;
     };
     return response;
   });
@@ -40,10 +47,13 @@ export const thunkAuthenticate = createAsyncThunk(
   'session/authenticate',
   async (data, { dispatch }) => {
     const response = await instance.get('/auth/');
-    const res = await unwrapResult(response);
-    if (response.ok) {
-      dispatch(authenticate(res));
-      return res;
+    if (response.data?.errors) {
+      return response.data.errors;
+    };
+
+    if (response.data) {
+      dispatch(authenticate(response.data));
+      return;
     };
     return response;
   }
@@ -53,7 +63,7 @@ export const thunkAuthenticate = createAsyncThunk(
 export const thunkSignup = createAsyncThunk(
   'session/signup',
   async ({ email, password, firstname, lastname, username }, { dispatch }) => {
-    const response = await axios.post('/api/auth/signup', { email, password, firstname, lastname, username });
+    const response = await axios.post('/auth/signup', { email, password, firstname, lastname, username });
     if (response.data) {
       dispatch(authenticate(response.data));
       return res;
@@ -78,6 +88,8 @@ const sessionSlice = createSlice({
   }
 });
 
+// export session actions
 export const { login, authenticate } = sessionSlice.actions;
 
+// export session reducer
 export default sessionSlice.reducer;
