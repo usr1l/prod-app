@@ -7,7 +7,7 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from api.config import Config
 from api.models import db, User, FlashCard, Deck, Task, Note, deck_users
 from api.seeds import seed_commands, undo_users, seed_users, seed_flashcards, undo_flashcards, seed_decks, undo_decks, seed_notes, undo_notes, seed_tasks, undo_tasks
-
+from api.routes import auth_routes, user_routes
 
 app = Flask(__name__)
 
@@ -27,7 +27,8 @@ app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
 db.init_app(app)
-# app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(auth_routes, url_prefix='/api/auth')
+app.register_blueprint(user_routes, url_prefix='/api/users')
 Migrate(app, db)
 
 # Application Security
