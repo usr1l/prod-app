@@ -6,7 +6,7 @@ from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from api.config import Config
 from api.models import db, User
-from api.seeds import seed_commands
+from api.seeds import seed_commands, undo_users, seed_users
 
 
 app = Flask(__name__)
@@ -36,6 +36,8 @@ CORS(app, supports_credentials=True)
 if os.environ.get('FLASK_ENV') == 'production':
     with app.app_context():
         db.create_all()
+        undo_users()
+        seed_users()
 
 
 @app.route('/api/hello', methods=['GET'])
