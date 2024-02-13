@@ -175,7 +175,9 @@ def seed_flashcards():
         {"front": "What is the nearest planet to the Sun?",
          "back": "Mercury", "deckId": 3},
         {"front": "What is the largest mammal?",
-            "back": "Blue Whale", "deckId": 3}
+            "back": "Blue Whale", "deckId": 3},
+        {"front": "What is the longest river in the world?",
+         "back": "Nile River", "deckId": 3}
     ]
 
     flashcards = FlashCard.add_flash_cards(seed_flashcards)

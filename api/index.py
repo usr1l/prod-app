@@ -47,8 +47,8 @@ if os.environ.get('FLASK_ENV') == 'production':
 
         # then seed all tables
         seed_users()
-        seed_flashcards()
         seed_decks()
+        seed_flashcards()
         seed_tasks()
         seed_notes()
 
