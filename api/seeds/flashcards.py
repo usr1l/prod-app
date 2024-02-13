@@ -35,7 +35,7 @@ def seed_flashcards():
 def undo_flashcards():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table flashcards RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table flashcards RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM flashcards"))
 

@@ -25,7 +25,7 @@ def seed_notes():
 def undo_notes():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table decks RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table decks RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM decks"))
 

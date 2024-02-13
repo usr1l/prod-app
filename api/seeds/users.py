@@ -58,7 +58,7 @@ def seed_users():
 def undo_users():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table users RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table users RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM users"))
 
