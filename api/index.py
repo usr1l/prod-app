@@ -6,7 +6,7 @@ from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from api.config import Config
 from api.models import db, User, FlashCard, Deck, Task, Note, deck_users
-from api.seeds import seed_commands, undo_users, seed_users
+from api.seeds import seed_commands, undo_users, seed_users, seed_flashcards, undo_flashcards, seed_decks, undo_decks, seed_notes, undo_notes, seed_tasks, undo_tasks
 
 
 app = Flask(__name__)
@@ -36,8 +36,20 @@ CORS(app, supports_credentials=True)
 if os.environ.get('FLASK_ENV') == 'production':
     with app.app_context():
         db.create_all()
+
+        # first unseed all tables
+        undo_notes()
+        undo_tasks()
+        undo_flashcards()
+        undo_decks()
         undo_users()
+
+        # then seed all tables
         seed_users()
+        seed_flashcards()
+        seed_decks()
+        seed_tasks()
+        seed_notes()
 
 
 @app.route('/api/hello', methods=['GET'])

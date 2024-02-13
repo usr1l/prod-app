@@ -1,5 +1,5 @@
 from flask.cli import AppGroup
-from .users import seed_users, undo_users
+from .users import seed_users, undo_users, seed_flashcards, undo_flashcards, seed_decks, undo_decks, seed_notes, undo_notes, seed_tasks, undo_tasks
 from api.models import db, environment
 
 # Creates a seed group to hold our commands
@@ -16,9 +16,17 @@ def seed():
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
 
+        undo_notes()
+        undo_tasks()
+        undo_flashcards()
+        undo_decks()
         undo_users()
 
     seed_users()
+    seed_flashcards()
+    seed_decks()
+    seed_tasks()
+    seed_notes()
 
     # Add other seed functions here
 
@@ -35,5 +43,9 @@ def seed():
 
 @seed_commands.command('undo')
 def undo():
+    undo_tasks()
+    undo_notes()
+    undo_flashcards()
+    undo_decks()
     undo_users()
     # Add other undo functions here
