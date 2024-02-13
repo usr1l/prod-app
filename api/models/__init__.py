@@ -1,2 +1,1 @@
-from .db import db, environment
-from .user import User, FlashCard, Deck, Task, Note, deck_users
+from .model import User, FlashCard, Deck, Task, Note, deck_users, db, environment

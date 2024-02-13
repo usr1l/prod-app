@@ -1,7 +1,13 @@
-from . import db, environment
+import os
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+
+
+environment = os.getenv("FLASK_ENV")
+
+db = SQLAlchemy()
 
 deck_users = db.Table(
     "deck_users",
