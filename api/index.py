@@ -5,7 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from api.config import Config
-from api.models import db, User
+from api.models import db, User, FlashCard, Deck, Task, Note, deck_users
 from api.seeds import seed_commands, undo_users, seed_users
 
 
