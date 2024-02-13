@@ -33,6 +33,7 @@ Migrate(app, db)
 # Application Security
 CORS(app, supports_credentials=True)
 
+# create tables in the vercel postgres database
 if os.environ.get('FLASK_ENV') == 'production':
     with app.app_context():
         db.create_all()

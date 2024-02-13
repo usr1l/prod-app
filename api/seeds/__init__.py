@@ -23,8 +23,8 @@ def seed():
         undo_users()
 
     seed_users()
-    seed_flashcards()
     seed_decks()
+    seed_flashcards()
     seed_tasks()
     seed_notes()
 
