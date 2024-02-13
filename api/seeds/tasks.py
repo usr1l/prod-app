@@ -1,4 +1,4 @@
-from api.models import db, Task, environment, SCHEMA
+from api.models import db, Task, environment
 from sqlalchemy.sql import text
 from datetime import datetime
 
@@ -53,7 +53,7 @@ def seed_tasks():
 def undo_tasks():
   if environment == "Production":
     db.session.execute(
-      f"TRUNCATE table {SCHEMA}.tasks RESTART IDENTITY CASCADE;")
+      f"TRUNCATE table tasks RESTART IDENTITY CASCADE;")
   else:
     db.session.execute(text("DELETE FROM tasks"))
 

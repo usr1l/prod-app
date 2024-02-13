@@ -1,4 +1,4 @@
-from api.models import db, FlashCard, environment, SCHEMA
+from api.models import db, FlashCard, environment
 from sqlalchemy.sql import text
 
 
@@ -35,7 +35,7 @@ def seed_flashcards():
 def undo_flashcards():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.flashcards RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table flashcards RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM flashcards"))
 

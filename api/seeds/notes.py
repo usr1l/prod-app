@@ -1,4 +1,4 @@
-from api.models import db, Note, environment, SCHEMA
+from api.models import db, Note, environment
 from sqlalchemy.sql import text
 
 
@@ -25,7 +25,7 @@ def seed_notes():
 def undo_notes():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.decks RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table decks RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM decks"))
 

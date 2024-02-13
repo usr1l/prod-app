@@ -1,4 +1,4 @@
-from api.models import db, Deck, environment, SCHEMA
+from api.models import db, Deck, environment
 from sqlalchemy.sql import text
 from datetime import datetime
 
@@ -20,7 +20,7 @@ def seed_decks():
 def undo_decks():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table {SCHEMA}.decks RESTART IDENTITY CASCADE;")
+            f"TRUNCATE table decks RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM decks"))
 

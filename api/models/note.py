@@ -1,12 +1,9 @@
-from . import db, environment, SCHEMA
+from . import db, environment
 from datetime import datetime
 
 
 class Note(db.Model):
     __tablename__ = 'notes'
-
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
