@@ -60,7 +60,7 @@ def seed_users():
 def undo_users():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table users RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table users RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM users"))
 
@@ -119,7 +119,7 @@ def seed_tasks():
 def undo_tasks():
     if environment == "Production":
         db.session.execute(
-            f"TRUNCATE table tasks RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table tasks RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM tasks"))
 
@@ -149,7 +149,7 @@ def seed_notes():
 def undo_notes():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table decks RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table decks RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM decks"))
 
@@ -189,7 +189,7 @@ def seed_flashcards():
 def undo_flashcards():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table flashcards RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table flashcards RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM flashcards"))
 
@@ -213,7 +213,7 @@ def seed_decks():
 def undo_decks():
     if environment == "production":
         db.session.execute(
-            f"TRUNCATE table decks RESTART IDENTITY CASCADE;")
+            text("TRUNCATE table decks RESTART IDENTITY CASCADE;"))
     else:
         db.session.execute(text("DELETE FROM decks"))
 
