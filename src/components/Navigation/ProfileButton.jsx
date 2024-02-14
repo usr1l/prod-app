@@ -39,7 +39,7 @@ export default function ProfileButton({ user }) {
     // dispatch(logout());
   };
   //  + (showMenu ? "" : " hidden")
-  const ulClassName = "flex flex-col absolute top-24 right-4 z-20 border-black border-3 box-border w-72 bg-white h-auto min-h-36 p-4 shadow-top-left-light";
+  const ulClassName = "flex flex-col absolute top-24 right-4 z-20 border-black border-3 box-border w-64 bg-white h-auto min-h-36 p-4 shadow-top-left-light";
   const closeMenu = () => setShowMenu(false);
 
   return (

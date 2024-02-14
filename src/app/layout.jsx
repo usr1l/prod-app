@@ -1,17 +1,19 @@
 
 import React from "react";
 import { Inter } from "next/font/google";
-import StoreProvider from "./StoreProvider";
+import { Suspense } from "react";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Navigation from "@components/Navigation";
 import { ModalProvider, Modal } from "@context/Modal";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Error from "./error";
-import '@app/globals.css';
 import BottomNav from "@components/BottomNav";
+import StoreProvider from "./StoreProvider";
+import '@app/globals.css';
 
 // allow use of fontawesome icons
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import Loading from "./loading";
 config.autoAddCss = false;
 
 
@@ -26,7 +28,7 @@ export default async function RootLayout({ children }) {
   return (
     <React.StrictMode >
       <html lang="en">
-        <body className="w-auto flex flex-col box-border h-auto">
+        <body className="w-auto flex flex-col box-border min-h-screen tracking-wide">
           <ModalProvider>
             <StoreProvider>
               <Navigation />
@@ -34,6 +36,7 @@ export default async function RootLayout({ children }) {
               {children}
               <BottomNav />
               <Modal />
+              <Suspense fallback={<Loading />} />
             </StoreProvider>
           </ModalProvider>
         </body>
