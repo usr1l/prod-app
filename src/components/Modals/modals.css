@@ -1,0 +1,55 @@
+@layer components {
+  .modal {
+    display: flex;
+    flex-direction: column;
+    width: 425px;
+    height: 300px;
+    align-items: center;
+    background-color: #313338;
+    border-radius: .25rem;
+    justify-content: center;
+  }
+
+  .modal-header {
+    font-weight: 400;
+    font-size: 16pt;
+    color: white;
+    margin-bottom: 10px;
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+    align-self: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 180px;
+    justify-content: space-around;
+  }
+
+  .modal-label {
+    align-self: start;
+    margin-top: 0;
+    height: 12px;
+    font-size: 8pt;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  .modal-errors {
+    list-style: none;
+    font-size: 10pt;
+    align-content: left;
+    width: 440px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1px;
+    line-height: 18px;
+    color: rgb(194, 194, 194);
+    margin-top: 5px;
+  }
+
+
+}

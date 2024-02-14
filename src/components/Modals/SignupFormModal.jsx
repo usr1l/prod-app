@@ -3,7 +3,7 @@ import { thunkLogin } from "@store/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "@context/Modal";
 
-export default function LoginFormModal() {
+export default function SignupFormModal() {
   const dispatch = useDispatch();
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");

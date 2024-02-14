@@ -1,11 +1,8 @@
 'use client';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { redirect } from 'next/navigation';
-import Card, { FlashCard, TiltCard } from '@components/Card';
-import OpenModalButton from '@components/OpenModalButton';
-import LoginFormModal from '@components/LoginFormModal';
-import { thunkLogin } from '@lib/store/session';
+import { FlashCard, TiltCard } from '@components/Card';
 import '@app/globals.css';
 
 export default function HomePage() {
@@ -15,7 +12,11 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative w-auto h-screen flex flex-col justify-center items-center bg-grey-400 box-border">
+    <main className="page relative items-center bg-grey-400">
+      <div className='flex justify-between gap-x-16 gap-y-16'>
+        <TiltCard />
+        <FlashCard front={'Front'} back={'Back'} />
+      </div>
     </main>
   );
 };

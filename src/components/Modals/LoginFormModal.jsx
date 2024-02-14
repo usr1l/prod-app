@@ -23,15 +23,15 @@ function LoginFormModal() {
   };
 
   return (
-    <div className="border border-red-600">
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
+    <div className="modal">
+      <h1 className="modal-header">Log In</h1>
+      <form className="modal-form" onSubmit={handleSubmit}>
+        <ul className="modal-errors">
           {Object.entries(errors).map(([ err, errMsg ], idx) => (
             <li key={idx}>{err}: {errMsg}</li>
           ))}
         </ul>
-        <label>
+        <label className="modal-label">
           Email
           <input
             type="text"
@@ -40,7 +40,7 @@ function LoginFormModal() {
             required
           />
         </label>
-        <label>
+        <label className="modal-label">
           Password
           <input
             type="password"

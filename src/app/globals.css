@@ -2,4 +2,19 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* @layer base {} */
+@layer components {
+  .page {
+    display: flex;
+    width: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

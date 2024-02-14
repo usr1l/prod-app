@@ -1,4 +1,5 @@
-import React, { Children } from 'react';
+import React from 'react';
+import OpenModalButton from './OpenModalButton';
 import '@app/globals.css';
 
 const Button = ({
@@ -26,3 +27,4 @@ const Button = ({
 };
 
 export default Button;
+export { OpenModalButton };

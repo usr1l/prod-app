@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import OpenModalButton from "../OpenModalButton";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+import OpenModalButton from "../Button/OpenModalButton";
+import LoginFormModal from "../Modals/LoginFormModal";
+import SignupFormModal from "../Modals/SignupFormModal";
 import IconLabel from "@components/IconLabel";
 import "@app/globals.css";
 

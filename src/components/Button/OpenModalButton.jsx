@@ -1,9 +1,9 @@
 'use client';
 
 import { useModal } from '@context/Modal';
-import './open-modal-button.css'
+import './button.css';
 
-function OpenModalButton({
+export default function OpenModalButton({
   modalComponent, // component to render inside the modal
   buttonText, // text of the button that opens the modal
   modalCSSClass,
@@ -27,5 +27,3 @@ function OpenModalButton({
     </button>
   );
 }
-
-export default OpenModalButton;
