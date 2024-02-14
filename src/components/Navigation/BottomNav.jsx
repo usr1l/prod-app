@@ -1,7 +1,7 @@
 import React from 'react'
 import '@app/globals.css';
 
-function BottomNav({
+export default function BottomNav({
   children,
 }) {
   return (
@@ -12,5 +12,3 @@ function BottomNav({
     </div>
   );
 };
-
-export default BottomNav;

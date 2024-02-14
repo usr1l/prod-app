@@ -4,8 +4,7 @@ import { useState } from "react";
 import { thunkLogin } from "@store/session";
 import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import '@app/globals.css';
+import './modals.css';
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ function LoginFormModal() {
         </ul>
         <label className="modal-label">
           Email
-          <input
+          <input className="modal-input"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -42,7 +41,7 @@ function LoginFormModal() {
         </label>
         <label className="modal-label">
           Password
-          <input
+          <input className="modal-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

@@ -3,10 +3,9 @@ import React from "react";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import Navigation from "@components/Navigation";
+import Navigation, { BottomNav } from "@components/Navigation";
 import { ModalProvider, Modal } from "@context/Modal";
 import Error from "./error";
-import BottomNav from "@components/BottomNav";
 import StoreProvider from "./StoreProvider";
 import '@app/globals.css';
 
@@ -34,12 +33,12 @@ export default async function RootLayout({ children }) {
               <Navigation />
               <ErrorBoundary fallback={<Error />} />
               {children}
-              <BottomNav />
               <Modal />
               <Suspense fallback={<Loading />} />
             </StoreProvider>
           </ModalProvider>
         </body>
+        <BottomNav />
       </html>
     </React.StrictMode>
   );

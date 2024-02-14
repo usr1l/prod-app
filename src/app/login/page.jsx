@@ -4,7 +4,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { thunkLogin } from '@lib/store/session';
 import { LoginFormModal, SignupFormModal } from '@components/Modals';
-import { OpenModalButton } from '@components/Button';
 import '@app/globals.css';
 
 function Login() {
@@ -14,19 +13,14 @@ function Login() {
   };
 
   return (
-    <main className='page relative bg-gray-500 items-center'>
+    <main className='flex absolute inset-0 bg-gray-500 '>
+      <section className='center h-full w-96 bg-black relative left-0 top-0 bottom-0 m-0'>
+        <LoginFormModal />
+        {/* <SignupFormModal /> */}
+      </section>
       <div className='center w-64 justify-between'>
-        <OpenModalButton
-          buttonText='Open Modal'
-          modalComponent={<LoginFormModal />}
-        />
-        <OpenModalButton
-          buttonText='Sign Up'
-          modalComponent={<SignupFormModal />}
-        />
       </div>
       <div className='center mt-12'>
-        This
       </div>
     </main>
   )

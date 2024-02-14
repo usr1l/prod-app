@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { thunkAuthenticate, thunkLogin, thunkTest } from "@lib/store/session";
+import { thunkAuthenticate } from "@lib/store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import ProfileButton from './ProfileButton';
 import SiteLogo from "@components/SiteLogo";
+import BottomNav from "./BottomNav";
 import '@app/globals.css';
 
 export default function Navigation() {
@@ -29,3 +30,5 @@ export default function Navigation() {
     </div>
   );
 }
+
+export { BottomNav }
