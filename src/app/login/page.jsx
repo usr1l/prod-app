@@ -14,7 +14,7 @@ function Login() {
 
   return (
     <main className='flex absolute inset-0 bg-gray-500 '>
-      <section className='center h-full w-96 bg-black relative left-0 top-0 bottom-0 m-0'>
+      <section className='center box-border h-full w-96 bg-black relative left-0 top-0 bottom-0 mx-0'>
         <LoginFormModal />
         {/* <SignupFormModal /> */}
       </section>
