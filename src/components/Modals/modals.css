@@ -6,10 +6,7 @@
   .modal {
     display: flex;
     flex-direction: column;
-    align-items: center;
     width: auto;
-    border-radius: .25rem;
-    justify-content: center;
   }
 
   .modal-header {

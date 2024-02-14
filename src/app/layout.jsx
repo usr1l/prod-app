@@ -13,6 +13,7 @@ import '@app/globals.css';
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import Loading from "./loading";
+import Page from "@components/Page";
 config.autoAddCss = false;
 
 
@@ -27,18 +28,20 @@ export default async function RootLayout({ children }) {
   return (
     <React.StrictMode >
       <html lang="en">
-        <body className="w-auto flex flex-col box-border min-h-screen tracking-wide">
+        <body className="tracking-wide">
           <ModalProvider>
             <StoreProvider>
               <Navigation />
               <ErrorBoundary fallback={<Error />} />
-              {children}
+              <Page>
+                {children}
+                <BottomNav />
+              </Page>
               <Modal />
               <Suspense fallback={<Loading />} />
             </StoreProvider>
           </ModalProvider>
         </body>
-        <BottomNav />
       </html>
     </React.StrictMode>
   );

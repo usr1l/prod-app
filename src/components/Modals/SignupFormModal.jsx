@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from "react";
 import { thunkLogin } from "@store/session";
 import { useDispatch } from "react-redux";
