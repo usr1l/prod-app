@@ -1,4 +1,4 @@
-import { useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import ReactCardFlip from 'react-card-flip';
 import React, { useState } from "react";
 import Card from ".";

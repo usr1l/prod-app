@@ -1,5 +1,6 @@
 import { useMotionValue, useSpring, useTransform } from "framer-motion";
 import React from "react";
+import Card from ".";
 
 export default function TiltCard() {
 
