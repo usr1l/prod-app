@@ -23,12 +23,12 @@ function Login() {
 
   return (
     <main className='main bg-gray-500'>
-      <motion.section
+      <section
         className='center box-border h-full w-96 bg-black left-0 top-0 bottom-0 mx-0 flex flex-col'
       >
         {showLoginForm ? <LoginFormModal /> : <SignupFormModal />}
-        <button className='self-end pr-4' onClick={showForm}>{showLoginForm ? 'Create an account' : 'Already a member? Sign in'}</button>
-      </motion.section>
+        <button className='self-end pr-4 text-gray-200 hover:text-gray-600' onClick={showForm}>{showLoginForm ? 'Create an account' : 'Already a member? Sign in'}</button>
+      </section>
       <div className='flex justify-center items-center box-border w-auto'>
         <TiltCard />
         <FlashCard front={'Front'} back={'Back'} />
