@@ -48,7 +48,10 @@ function LoginFormModal() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Log In</button>
+        <button
+          className="modal-button my-4 hover:text-black hover:bg-white"
+          type="submit"
+        >Log In</button>
       </form>
     </div>
   );

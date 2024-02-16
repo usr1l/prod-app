@@ -6,10 +6,7 @@
   .modal {
     display: flex;
     flex-direction: column;
-    width: 90%;
-    border-color: #4a4a4a;
-    border-width: 1px;
-    border-radius: 0.5rem;
+    width: 100%;
     box-sizing: border-box;
   }
 
@@ -32,6 +29,7 @@
   }
 
   .modal-label {
+    font-size: 1rem;
     color: #fff;
     margin-bottom: .5rem;
   }
@@ -47,6 +45,20 @@
     margin-bottom: 1rem;
     border-radius: .25rem;
     color: black;
-    height: 40px;
+    height: 35px;
   }
+
+  .modal-button {
+    border-radius: .5rem;
+    background-color: white;
+    transition: 0.3s;
+    color: black;
+    box-sizing: border-box;
+    border: 1px solid black;
+    width: auto;
+    height: 35px;
+    box-sizing: border-box;
+    font-size: .75rem;
+  }
+
 }

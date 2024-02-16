@@ -96,10 +96,11 @@ export default function SignupFormModal() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
+        <button
+          className="modal-button my-4 hover:text-black hover:bg-white"
+          type="submit"
+        >Submit</button>
       </form>
-      <button
-        className=""
-      >Submit</button>
     </div>
   );
 }
