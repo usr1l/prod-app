@@ -19,15 +19,15 @@ export default function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
 
   return (
-    <div
-      className="flex w-auto items-center shadow-lg box-border justify-between sticky h-20 bg-white top-0 right-0 left-0 z-50 border-b border-gray-400 px-6 p-2"
+    <nav
+      className="flex w-auto items-center shadow-lg box-border justify-between sticky h-20 bg-white top-0 right-0 left-0 z-50 border-b border-gray-400 px-6"
     >
       <SiteLogo />
       {sessionUser && (
         <ProfileButton user={sessionUser} />
       )
       }
-    </div>
+    </nav>
   );
 }
 

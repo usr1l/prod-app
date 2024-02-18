@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Provider } from "react-redux";
-import configureAppStore from "@store/index";
+import configureAppStore from "../lib/store/index";
 
 export default function StoreProvider({ children }) {
   const storeRef = useRef();

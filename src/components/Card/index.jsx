@@ -46,4 +46,4 @@ export default function Card({
   )
 };
 
-export { TiltCard, FlashCard }
+export { TiltCard, FlashCard };

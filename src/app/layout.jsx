@@ -28,12 +28,12 @@ export default async function RootLayout({ children }) {
   return (
     <React.StrictMode >
       <html lang="en">
-        <body className="tracking-wide">
+        <body className="tracking-wide min-h-screen">
           <ModalProvider>
             <StoreProvider>
               <Navigation />
               <ErrorBoundary fallback={<Error />} />
-              <Page>
+              <Page >
                 {children}
                 <BottomNav />
               </Page>

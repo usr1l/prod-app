@@ -1,12 +1,17 @@
 'use client'
 
 import { useState } from "react";
-import { thunkLogin } from "@store/session";
+import { thunkLogin } from "@lib/store";
 import { useModal } from "../../context/Modal";
+import { SlideUpTransition } from "@components/Transition";
+import InputDiv from "@components/InputDiv";
 import { useDispatch } from "react-redux";
 import './modals.css';
 
-function LoginFormModal() {
+function LoginFormModal({
+  className,
+  key
+}) {
   const dispatch = useDispatch();
 
   const [ email, setEmail ] = useState("");
@@ -16,40 +21,46 @@ function LoginFormModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = dispatch(thunkLogin(email, password));
-    console.log(data);
+    dispatch(thunkLogin({ email, password }))
+      .then((data) => {
+        if (data.payload.errors) {
+          setErrors(data.payload.errors);
+        } else {
 
+        }
+      });
   };
 
   return (
-    <div className="modal">
+    <div
+      key={key}
+      className={`modal ${className}`}>
       <h1 className="modal-header">Log In</h1>
       <form className="modal-form" onSubmit={handleSubmit}>
-        <ul className="modal-errors">
-          {Object.entries(errors).map(([ err, errMsg ], idx) => (
-            <li key={idx}>{err}: {errMsg}</li>
-          ))}
-        </ul>
-        <label className="modal-label">
-          Email
-        </label>
-        <input className="modal-input"
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label className="modal-label">
-          Password
-        </label>
-        <input className="modal-input"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <InputDiv
+          label={"Email"}
+          error={errors.email}
+        >
+          <input className="modal-input"
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </InputDiv>
+        <InputDiv
+          label={"Password"}
+          error={errors.password}
+        >
+          <input className="modal-input"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </InputDiv>
         <button
-          className="modal-button my-4 hover:text-black hover:bg-white"
+          className="modal-button my-4 bg-gray-300 hover:bg-white"
           type="submit"
         >Log In</button>
       </form>
@@ -57,4 +68,6 @@ function LoginFormModal() {
   );
 }
 
-export default LoginFormModal;
+const WrappedLoginFormModal = SlideUpTransition(LoginFormModal);
+
+export default WrappedLoginFormModal;

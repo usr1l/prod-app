@@ -2,8 +2,7 @@
 
 import { useSelector } from 'react-redux';
 import { redirect } from 'next/navigation';
-import { FlashCard, TiltCard } from '@components/Card';
-import '@app/globals.css';
+import './globals.css';
 
 export default function HomePage() {
   const user = useSelector((state) => state.session.user);
@@ -13,7 +12,7 @@ export default function HomePage() {
 
   return (
     <main className="page relative justify-center items-center bg-grey-400">
-      <div className='flex justify-between gap-x-16 gap-y-16'>
+      <div className='flex justify-between gap-x-16 gap-y-16 w-auto'>
         <TiltCard />
         <FlashCard front={'Front'} back={'Back'} />
       </div>
