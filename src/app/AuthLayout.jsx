@@ -8,13 +8,12 @@ import { useSession } from 'next-auth/react';
 export default function AuthLayout({ children }) {
 
   // session is linked to <SessionProvider> located in ./src/app/StoreProvider.jsx
+  // has data, status, and update
   const session = useSession();
-  console.log(session)
-
-
-  const router = useRouter();
-  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
-
+  // const { isAuthenticated, user } = { data };
+  console.log(session, 'here')
+  // const router = useRouter();
+  // const [ isAuthenticated, setIsAuthenticated ] = useState(false);
   // useEffect(() => {
   //   if (status === 'authenticated') {
   //     setIsAuthenticated(true);
@@ -23,5 +22,9 @@ export default function AuthLayout({ children }) {
   //   }
   // }, [ status, router ]);
 
-  return
+  return (
+    <>
+      {children}
+    </>
+  )
 }

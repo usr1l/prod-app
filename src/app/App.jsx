@@ -6,20 +6,23 @@ import Page from '@components/Page';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkAuthenticate } from '@lib/store';
 import AuthLayout from './AuthLayout';
+import { SessionProvider } from 'next-auth/react';
 
 function App({ children }) {
+
   const dispatch = useDispatch();
   const [ isLoaded, setIsLoaded ] = useState(false);
-  const user = useSelector(state => state.session.user);
 
+  const session = useSelector(state => state.session);
+  console.log(session)
   return (
     <>
       <Navigation />
       <AuthLayout>
-        <Page >
-          {children}
-          <BottomNav />
-        </Page>
+        {/* <Page > */}
+        {/* {children} */}
+        {/* <BottomNav /> */}
+        {/* </Page> */}
       </AuthLayout>
     </>
   )

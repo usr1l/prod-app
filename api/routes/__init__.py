@@ -92,6 +92,16 @@ def unauthorized():
     return {'errors': ['Unauthorized']}, 401
 
 
+@auth_routes.route('/session')
+def session_user():
+    """
+    Returns the session user
+    """
+    if current_user.is_authenticated:
+        return current_user.to_dict()
+    return {'errors': ['Unauthorized']}
+
+
 @user_routes.route('/')
 # @login_required
 def users():

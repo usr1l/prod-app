@@ -8,7 +8,8 @@ import { redirect } from "next/dist/server/api-utils";
 // session initial state
 const initialState = {
   isAuthenticated: false,
-  user: null
+  user: null,
+  errors: null
 };
 
 // thunk for testing connection
@@ -46,10 +47,16 @@ export const thunkAuthenticate = createAsyncThunk(
         'Content-Type': 'application/json',
       }
     });
+
     if (response.ok) {
       const res = await response.json();
+      if (res.errors) {
+        dispatch(handleError(res.errors));
+        return;
+      };
       dispatch(authenticate(res));
-    }
+      return;
+    };
   }
 );
 
@@ -74,7 +81,12 @@ const sessionSlice = createSlice({
     authenticate: (state, action) => {
       state.isAuthenticated = true;
       state.user = action.payload;
-    }
+      state.errors = null;
+    },
+    handleError: (state, action) => {
+      state.errors = action.payload;
+    },
+    test: (state, action) => {}
   },
   extraReducers: builder => {
     builder
@@ -83,7 +95,7 @@ const sessionSlice = createSlice({
 });
 
 // export session actions
-export const { login, authenticate } = sessionSlice.actions;
+export const { authenticate, handleError, test } = sessionSlice.actions;
 
 // export session reducer
 export default sessionSlice.reducer;

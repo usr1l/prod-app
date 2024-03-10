@@ -7,19 +7,24 @@ import { SessionProvider } from "next-auth/react";
 
 export default function StoreProvider({ children }) {
   const storeRef = useRef();
+  let sessionState = null;
   if (!storeRef.current) {
     storeRef.current = configureAppStore();
 
     // use features for data initialization
     storeRef.current.dispatch(thunkAuthenticate())
+
+    sessionState = storeRef.current.getState().session;
   };
 
 
   return (
     <Provider store={storeRef.current}>
-      <SessionProvider session={storeRef.current.getState().session}>
+      <SessionProvider session={sessionState}>
+
         {children}
-      </SessionProvider>
-    </Provider>
+      </SessionProvider >
+
+    </Provider >
   )
 };
