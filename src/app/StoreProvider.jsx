@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { Provider } from "react-redux";
-import configureAppStore from "../lib/store/index";
+import configureAppStore, { thunkAuthenticate } from "../lib/store/index";
 
 export default function StoreProvider({ children }) {
   const storeRef = useRef();
@@ -10,8 +10,9 @@ export default function StoreProvider({ children }) {
     storeRef.current = configureAppStore();
 
     // use features for data initialization
-    // storeRef.current.dispatch(initializeCount(count))
+    storeRef.current.dispatch(thunkAuthenticate())
   };
+
 
   return <Provider store={storeRef.current}>{children}</Provider>
 };

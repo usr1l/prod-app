@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
 export default function AuthLayout({ children }) {
-  // const { data: session, status } = useSession();
+  // const session = useSession();
   // console.log(session)
 
   // const router = useRouter();

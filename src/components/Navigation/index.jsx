@@ -11,10 +11,6 @@ import BottomNav from "./BottomNav";
 import '@app/globals.css';
 
 export default function Navigation() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(thunkAuthenticate())
-  }, [ dispatch ]);
 
   const sessionUser = useSelector(state => state.session.user);
 

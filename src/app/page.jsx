@@ -11,10 +11,6 @@ import AuthLayout from './AuthLayout';
 
 function HomePage() {
   const dispatch = useDispatch();
-  useLayoutEffect(() => {
-    dispatch(thunkTest());
-  }, [])
-
 
   return (
     <AuthLayout>
