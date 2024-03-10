@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { Provider } from "react-redux";
 import configureAppStore, { thunkAuthenticate } from "../lib/store/index";
+import { SessionProvider } from "next-auth/react";
 
 export default function StoreProvider({ children }) {
   const storeRef = useRef();
@@ -14,5 +15,11 @@ export default function StoreProvider({ children }) {
   };
 
 
-  return <Provider store={storeRef.current}>{children}</Provider>
+  return (
+    <Provider store={storeRef.current}>
+      <SessionProvider session={storeRef.current.getState().session}>
+        {children}
+      </SessionProvider>
+    </Provider>
+  )
 };

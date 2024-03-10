@@ -4,12 +4,16 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
+// for protected routes, authenticated access
 export default function AuthLayout({ children }) {
-  // const session = useSession();
-  // console.log(session)
 
-  // const router = useRouter();
-  // const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+  // session is linked to <SessionProvider> located in ./src/app/StoreProvider.jsx
+  const session = useSession();
+  console.log(session)
+
+
+  const router = useRouter();
+  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
 
   // useEffect(() => {
   //   if (status === 'authenticated') {
@@ -19,8 +23,5 @@ export default function AuthLayout({ children }) {
   //   }
   // }, [ status, router ]);
 
-  // if (isAuthenticated) {
-  //   return <>{children}</>;
-  // }
   return
 }
