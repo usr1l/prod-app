@@ -7,7 +7,6 @@ import configureAppStore from "../lib/store/index";
 export default function StoreProvider({ children }) {
   const storeRef = useRef();
   if (!storeRef.current) {
-    // console.log(configureAppStore)
     storeRef.current = configureAppStore();
 
     // use features for data initialization

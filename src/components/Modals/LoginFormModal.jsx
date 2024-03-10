@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { redirect } from "next/navigation";
 import { thunkLogin } from "@lib/store";
 import { useModal } from "../../context/Modal";
 import { SlideUpTransition } from "@components/Transition";
 import InputDiv from "@components/InputDiv";
-import { useDispatch } from "react-redux";
 import './modals.css';
 
 function LoginFormModal({
@@ -13,22 +14,23 @@ function LoginFormModal({
   key
 }) {
   const dispatch = useDispatch();
-
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ errors, setErrors ] = useState({});
   const { closeModal } = useModal();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(thunkLogin({ email, password }))
-      .then((data) => {
-        if (data.payload.errors) {
-          setErrors(data.payload.errors);
-        } else {
+    const res = await dispatch(thunkLogin({ email, password }))
+    if (res.payload?.errors) {
+      setErrors(res.payload.errors);
+      return
+    } else {
+      setErrors({});
+    }
 
-        }
-      });
+    redirect('/home');
+    return
   };
 
   return (

@@ -37,6 +37,7 @@ function Login() {
               key='2'
             />)}
         </AnimatePresence>
+        <button className='modal-button my-4 bg-gray-300 hover:bg-white w-auto' onClick={showForm}>Demo User</button>
         <button className='self-end absolute bottom-0 pr-4 pb-4 text-gray-200 hover:text-gray-600 w-auto' onClick={showForm}>{showLoginForm ? 'Create an account' : 'Already a member? Sign in'}</button>
       </section>
       <div className='flex justify-center items-center box-border w-auto'>

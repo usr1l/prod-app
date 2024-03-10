@@ -1,8 +1,9 @@
 'use client'
 
 import axios from "axios";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
 import instance from "@util/axios";
+import { redirect } from "next/dist/server/api-utils";
 
 // session initial state
 const initialState = {
@@ -36,6 +37,10 @@ export const thunkLogin = createAsyncThunk(
       return response.data;
     } catch (error) {
       return { "errors": error.response.data.errors };
+    } finally {
+      if (response.data) {
+        redirect('/');
+      }
     }
   });
 
