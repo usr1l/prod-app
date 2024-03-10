@@ -3,13 +3,11 @@ import React from "react";
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-import Navigation, { BottomNav } from "@components/Navigation";
 import { ModalProvider, Modal } from "@context/Modal";
 import Error from "./error";
 import StoreProvider from "./StoreProvider";
 import Loading from "./loading";
-import Page from "@components/Page";
-import Login from "./login/page";
+import App from "./App";
 import '@app/globals.css';
 
 // allow use of fontawesome icons
@@ -34,14 +32,10 @@ export default async function RootLayout({ children }) {
         <body className="tracking-wide min-h-screen">
           <ModalProvider>
             <StoreProvider>
-              <Navigation />
               <ErrorBoundary fallback={<Error />} />
-              <Page >
-                {children}
-                <BottomNav />
-              </Page>
-              <Modal />
               <Suspense fallback={<Loading />} />
+              <App />
+              <Modal />
             </StoreProvider>
           </ModalProvider>
         </body>

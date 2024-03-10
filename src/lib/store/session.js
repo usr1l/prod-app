@@ -15,14 +15,7 @@ const initialState = {
 export const thunkTest = createAsyncThunk(
   'session/test',
   async (data, { dispatch }) => {
-    const response = await instance.get('/auth/test');
-    if (response.data) {
-      return response.data;
-    };
-    if (response.errors) {
-      console.log(response.errors);
-      return response.errors;
-    };
+    const response = await fetch('/auth/test');
     return response;
   }
 );

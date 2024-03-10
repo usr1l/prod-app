@@ -5,19 +5,14 @@ import { redirect } from 'next/navigation';
 import { useEffect, useLayoutEffect } from 'react';
 import { getServerSession } from 'next-auth';
 import './globals.css';
-import { authenticate, thunkAuthenticate } from '@lib/store/session';
+import { authenticate, thunkAuthenticate, thunkTest } from '@lib/store/session';
 import { withAuthComponent } from '@util/sessionStatus';
 import AuthLayout from './AuthLayout';
 
 function HomePage() {
   const dispatch = useDispatch();
   useLayoutEffect(() => {
-    dispatch(thunkAuthenticate())
-      .then((res) => {
-        if (res.payload?.errors) {
-          redirect('/login');
-        }
-      });
+    dispatch(thunkTest());
   }, [])
 
 
