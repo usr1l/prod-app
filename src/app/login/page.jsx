@@ -27,7 +27,6 @@ function Login() {
 
   const handleMouseClick = () => {
     dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }))
-      .then(() => { router.push('/') });
   };
 
   const showForm = () => {

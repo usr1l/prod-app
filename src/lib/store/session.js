@@ -37,7 +37,7 @@ export const thunkLogin = createAsyncThunk(
       return;
     } else {
       dispatch(handleError(res.errors));
-      return;
+      return res.errors;
     }
   });
 
@@ -66,7 +66,22 @@ export const thunkAuthenticate = createAsyncThunk(
 export const thunkSignup = createAsyncThunk(
   'session/signup',
   async ({ email, password, firstname, lastname, username }, { dispatch }) => {
-    return;
+    const response = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password, firstname, lastname, username })
+    });
+
+    const res = await response.json();
+    if (response.ok) {
+      dispatch(authenticate(res));
+      return;
+    } else {
+      dispatch(handleError(res.errors));
+      return res.errors;
+    };
   }
 );
 
@@ -93,6 +108,7 @@ const sessionSlice = createSlice({
   initialState: initialState,
   reducers: {
     authenticate: (state, action) => {
+      console.log(action.payload, 'payload')
       state.isAuthenticated = true;
       state.user = action.payload;
       state.errors = null;
