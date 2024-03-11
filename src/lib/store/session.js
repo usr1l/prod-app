@@ -25,16 +25,20 @@ export const thunkTest = createAsyncThunk(
 export const thunkLogin = createAsyncThunk(
   'session/login',
   async ({ email, password }, { dispatch }) => {
-    try {
-      const response = await instance.post('/auth/login', { email, password })
-      dispatch(authenticate(response.data));
-      return response.data;
-    } catch (error) {
-      return { "errors": error.response.data.errors };
-    } finally {
-      if (response.data) {
-        redirect('/');
-      }
+    const response = await fetch('/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, password })
+    });
+    const res = await response.json();
+    if (response.ok) {
+      dispatch(authenticate(res));
+      return;
+    } else {
+      dispatch(handleError(res.errors));
+      return;
     }
   });
 
