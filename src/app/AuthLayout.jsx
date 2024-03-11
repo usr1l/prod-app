@@ -9,6 +9,7 @@ export default function AuthLayout({ children }) {
 
   // session is linked to <SessionProvider> located in ./src/app/StoreProvider.jsx
   // has data, status, and update
+  // auto fetches from /api/auth/session in the backend
   const { data, status } = useSession();
   const router = useRouter();
 

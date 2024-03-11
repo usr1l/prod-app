@@ -66,14 +66,30 @@ export const thunkAuthenticate = createAsyncThunk(
 export const thunkSignup = createAsyncThunk(
   'session/signup',
   async ({ email, password, firstname, lastname, username }, { dispatch }) => {
-    const response = await axios.post('/auth/signup', { email, password, firstname, lastname, username });
-    if (response.data) {
-      dispatch(authenticate(response.data));
-      return res;
-    };
-    return response;
+    return;
   }
 );
+
+// logout user thunk
+export const thunkLogout = createAsyncThunk(
+  'session/logout',
+  async (data, { dispatch }) => {
+    const response = await fetch('/api/auth/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    const res = await response.json();
+    if (response.ok) {
+      dispatch(authenticate(null));
+      return;
+    } else {
+      dispatch(handleError(res.errors));
+      return;
+    }
+  });
 
 // session slice
 const sessionSlice = createSlice({

@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import { thunkLogin } from '../../lib/store/index';
 import { LoginFormModal, SignupFormModal } from '../../components/Modals';
@@ -11,10 +11,18 @@ import '../globals.css';
 
 function Login() {
 
-  const [ showLoginForm, setShowLoginForm ] = useState(true);
-
   const dispatch = useDispatch();
   const router = useRouter();
+
+  const { user } = useSelector(state => state.session);
+
+  const [ showLoginForm, setShowLoginForm ] = useState(true);
+
+  useEffect(() => {
+    if (user) {
+      router.push('/');
+    };
+  }, [ user, router ]);
 
   const handleMouseClick = (e) => {
     dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }))
@@ -23,7 +31,7 @@ function Login() {
 
   const showForm = () => {
     setShowLoginForm(!showLoginForm);
-  }
+  };
 
   // to use framer motion, specify key, exit and transition mode, such as the "layout" prop
   return (
