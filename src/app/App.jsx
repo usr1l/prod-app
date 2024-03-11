@@ -16,7 +16,7 @@ function App({ children }) {
   const session = useSelector(state => state.session);
   console.log(session)
   return (
-    <>
+    <SessionProvider>
       <Navigation />
       <AuthLayout>
         <Page >
@@ -24,7 +24,7 @@ function App({ children }) {
           <BottomNav />
         </Page>
       </AuthLayout>
-    </>
+    </SessionProvider>
   )
 };
 
