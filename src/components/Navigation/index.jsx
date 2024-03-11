@@ -21,8 +21,7 @@ export default function Navigation() {
       <SiteLogo />
       {sessionUser && (
         <ProfileButton user={sessionUser} />
-      )
-      }
+      )}
     </nav>
   );
 }

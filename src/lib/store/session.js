@@ -75,15 +75,12 @@ export const thunkLogout = createAsyncThunk(
   'session/logout',
   async (data, { dispatch }) => {
     const response = await fetch('/api/auth/logout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      }
+      method: 'POST'
     });
 
-    const res = await response.json();
     if (response.ok) {
-      dispatch(authenticate(null));
+      dispatch(logout());
+      console.log('here')
       return;
     } else {
       dispatch(handleError(res.errors));
@@ -104,6 +101,11 @@ const sessionSlice = createSlice({
     handleError: (state, action) => {
       state.errors = action.payload;
     },
+    logout: (state, action) => {
+      state.isAuthenticated = false;
+      state.user = null;
+      state.errors = null;
+    },
     test: (state, action) => {}
   },
   extraReducers: builder => {
@@ -113,7 +115,7 @@ const sessionSlice = createSlice({
 });
 
 // export session actions
-export const { authenticate, handleError, test } = sessionSlice.actions;
+export const { authenticate, handleError, test, logout } = sessionSlice.actions;
 
 // export session reducer
 export default sessionSlice.reducer;

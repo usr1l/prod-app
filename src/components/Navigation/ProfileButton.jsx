@@ -8,10 +8,13 @@ import OpenModalButton from "../Button/OpenModalButton";
 import LoginFormModal from "../Modals/LoginFormModal";
 import SignupFormModal from "../Modals/SignupFormModal";
 import IconLabel from "@components/IconLabel";
+import { thunkLogout } from "@lib/store/session";
+import { useRouter } from "next/navigation";
 import "@app/globals.css";
 
 export default function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const router = useRouter();
   const [ showMenu, setShowMenu ] = useState(false);
   const ulRef = useRef();
 
@@ -34,9 +37,10 @@ export default function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [ showMenu ]);
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    dispatch(thunkLo);
+  const handleLogout = async (e) => {
+    await dispatch(thunkLogout());
+    router.push("/login");
+    return;
   };
   //  + (showMenu ? "" : " hidden")
   const ulClassName = "flex flex-col absolute top-24 right-4 z-20 border-black border-3 box-border w-64 bg-white h-auto min-h-36 p-4 shadow-top-left-light";
@@ -64,7 +68,6 @@ export default function ProfileButton({ user }) {
               onItemClick={closeMenu}
               modalComponent={<LoginFormModal />}
             />
-
             <OpenModalButton
               buttonText="Sign Up"
               onItemClick={closeMenu}
