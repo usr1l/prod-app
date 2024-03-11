@@ -21,16 +21,7 @@ function LoginFormModal({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await dispatch(thunkLogin({ email, password }))
-    if (res.payload?.errors) {
-      setErrors(res.payload.errors);
-      return
-    } else {
-      setErrors({});
-    }
-
-    redirect('/home');
-    return
+    dispatch(thunkLogin({ email, password }));
   };
 
   return (

@@ -80,7 +80,6 @@ export const thunkLogout = createAsyncThunk(
 
     if (response.ok) {
       dispatch(logout());
-      console.log('here')
       return;
     } else {
       dispatch(handleError(res.errors));

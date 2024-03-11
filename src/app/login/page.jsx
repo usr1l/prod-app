@@ -25,7 +25,7 @@ function Login() {
     } else setIsLoaded(true);
   }, [ isAuthenticated, router ]);
 
-  const handleMouseClick = (e) => {
+  const handleMouseClick = () => {
     dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }))
       .then(() => { router.push('/') });
   };
