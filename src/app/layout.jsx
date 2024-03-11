@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
             <StoreProvider>
               <ErrorBoundary fallback={<Error />} />
               <Suspense fallback={<Loading />} />
-              <App />
+              <App children={children} />
               <Modal />
             </StoreProvider>
           </ModalProvider>

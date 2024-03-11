@@ -19,10 +19,10 @@ function App({ children }) {
     <>
       <Navigation />
       <AuthLayout>
-        {/* <Page > */}
-        {/* {children} */}
-        {/* <BottomNav /> */}
-        {/* </Page> */}
+        <Page >
+          {children}
+          <BottomNav />
+        </Page>
       </AuthLayout>
     </>
   )

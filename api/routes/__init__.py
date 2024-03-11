@@ -24,16 +24,6 @@ def test():
     return {'test': 'test'}
 
 
-@auth_routes.route('/')
-def authenticate():
-    """
-    Authenticates a user.
-    """
-    if current_user.is_authenticated:
-        return current_user.to_dict()
-    return {'errors': ['Unauthorized']}
-
-
 @auth_routes.route('/login', methods=['POST'])
 def login():
     """
@@ -99,7 +89,7 @@ def session_user():
     """
     if current_user.is_authenticated:
         return current_user.to_dict()
-    return {'errors': ['Unauthorized']}
+    return {'errors': ['Unauthorized']}, 401
 
 
 @user_routes.route('/')

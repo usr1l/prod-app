@@ -9,18 +9,14 @@ export default function AuthLayout({ children }) {
 
   // session is linked to <SessionProvider> located in ./src/app/StoreProvider.jsx
   // has data, status, and update
-  const session = useSession();
-  // const { isAuthenticated, user } = { data };
-  console.log(session, 'here')
-  // const router = useRouter();
-  // const [ isAuthenticated, setIsAuthenticated ] = useState(false);
-  // useEffect(() => {
-  //   if (status === 'authenticated') {
-  //     setIsAuthenticated(true);
-  //   } else if (status === 'unauthenticated') {
-  //     router.push('/login');
-  //   }
-  // }, [ status, router ]);
+  const { data, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/login');
+    };
+  }, [ status, router ]);
 
   return (
     <>

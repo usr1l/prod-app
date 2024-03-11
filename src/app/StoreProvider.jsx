@@ -20,11 +20,9 @@ export default function StoreProvider({ children }) {
 
   return (
     <Provider store={storeRef.current}>
-      <SessionProvider session={sessionState}>
-
+      <SessionProvider>
         {children}
-      </SessionProvider >
-
+      </SessionProvider>
     </Provider >
   )
 };

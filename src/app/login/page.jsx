@@ -13,9 +13,9 @@ function Login() {
   const [ showLoginForm, setShowLoginForm ] = useState(true);
 
   const dispatch = useDispatch();
-  // const handleMouseClick = (e) => {
-  //   dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
-  // };
+  const handleMouseClick = (e) => {
+    dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
+  };
 
   const showForm = () => {
     setShowLoginForm(!showLoginForm);

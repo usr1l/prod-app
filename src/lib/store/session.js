@@ -42,21 +42,20 @@ export const thunkLogin = createAsyncThunk(
 export const thunkAuthenticate = createAsyncThunk(
   'session/authenticate',
   async (data, { dispatch }) => {
-    const response = await fetch('/api/auth/', {
+    const response = await fetch('/api/auth/session', {
       headers: {
         'Content-Type': 'application/json',
       }
     });
 
+    const res = await response.json();
     if (response.ok) {
-      const res = await response.json();
-      if (res.errors) {
-        dispatch(handleError(res.errors));
-        return;
-      };
       dispatch(authenticate(res));
       return;
-    };
+    } else {
+      dispatch(handleError(res.errors));
+      return;
+    }
   }
 );
 
