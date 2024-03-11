@@ -1,6 +1,5 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import current_user, login_user, logout_user, login_required
-from flask_cors import cross_origin
 from api.models import User, db
 from api.forms import LoginForm
 from api.forms import SignUpForm
@@ -13,21 +12,11 @@ def validation_errors_to_error_messages(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
     """
-    errorMessages = []
+    errorMessages = {}
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
+            errorMessages[f"{field}"] = f"{error}"
     return errorMessages
-
-
-@auth_routes.route('/')
-def authenticate():
-    """
-    Authenticates a user.
-    """
-    if current_user.is_authenticated:
-        return current_user.to_dict()
-    return {'errors': ['Unauthorized']}
 
 
 @auth_routes.route('/test')
@@ -44,7 +33,6 @@ def login():
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.data['email'], form.data['password'])
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
@@ -53,12 +41,14 @@ def login():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@auth_routes.route('/logout')
+@auth_routes.route('/logout', methods=['POST'])
 def logout():
     """
     Logs a user out
     """
+    print('LOGGING OUT', current_user)
     logout_user()
+    print('LOGGED OUT', current_user)
     return {'message': 'User logged out'}
 
 
@@ -89,6 +79,16 @@ def unauthorized():
     """
     Returns unauthorized JSON when flask-login authentication fails
     """
+    return {'errors': ['Unauthorized']}, 401
+
+
+@auth_routes.route('/session')
+def session_user():
+    """
+    Returns the session user
+    """
+    if current_user.is_authenticated:
+        return current_user.to_dict()
     return {'errors': ['Unauthorized']}, 401
 
 

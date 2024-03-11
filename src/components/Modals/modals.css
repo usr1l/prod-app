@@ -1,0 +1,64 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer components {
+  .modal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid #4a4a4a;
+    color: #fff;
+    font-size: 20px;
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .modal-label {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: .5rem;
+  }
+
+  .modal-input {
+    width: 100%;
+    padding: .5rem;
+    border-radius: .25rem;
+    color: black;
+    height: 35px;
+  }
+
+  .modal-button {
+    border-radius: .25rem;
+    transition: 0.3s;
+    color: black;
+    box-sizing: border-box;
+    width: auto;
+    height: 35px;
+    box-sizing: border-box;
+    font-size: .75rem;
+  }
+
+  .modal-error-message {
+    height: 16px;
+    color: red;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+  }
+}
