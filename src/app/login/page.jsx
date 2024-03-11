@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { thunkLogin } from '../../lib/store/index';
 import { LoginFormModal, SignupFormModal } from '../../components/Modals';
 import { FlashCard, TiltCard } from '../../components/Card';
+import { useRouter } from 'next/navigation';
 import '../globals.css';
 
 function Login() {
@@ -13,8 +14,11 @@ function Login() {
   const [ showLoginForm, setShowLoginForm ] = useState(true);
 
   const dispatch = useDispatch();
+  const router = useRouter();
+
   const handleMouseClick = (e) => {
-    dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
+    dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }))
+      .then(() => { router.push('/') });
   };
 
   const showForm = () => {
@@ -37,7 +41,7 @@ function Login() {
               key='2'
             />)}
         </AnimatePresence>
-        <button className='modal-button my-4 bg-gray-300 hover:bg-white w-auto' onClick={showForm}>Demo User</button>
+        <button className='modal-button my-4 bg-gray-300 hover:bg-white w-auto' onClick={handleMouseClick}>Demo User</button>
         <button className='self-end absolute bottom-0 pr-4 pb-4 text-gray-200 hover:text-gray-600 w-auto' onClick={showForm}>{showLoginForm ? 'Create an account' : 'Already a member? Sign in'}</button>
       </section>
       <div className='flex justify-center items-center box-border w-auto'>

@@ -2,8 +2,6 @@
 
 import axios from "axios";
 import { createSlice, createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
-import instance from "@util/axios";
-import { redirect } from "next/dist/server/api-utils";
 
 // session initial state
 const initialState = {
@@ -25,13 +23,14 @@ export const thunkTest = createAsyncThunk(
 export const thunkLogin = createAsyncThunk(
   'session/login',
   async ({ email, password }, { dispatch }) => {
-    const response = await fetch('/auth/login', {
+    const response = await fetch('/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ email, password })
     });
+
     const res = await response.json();
     if (response.ok) {
       dispatch(authenticate(res));
