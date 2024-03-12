@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-import sessionReducer from './session.js';
+import sessionReducer, { thunkLogin, thunkAuthenticate, thunkSignup } from './session.js';
 
 const rootReducer = combineReducers({
   session: sessionReducer
@@ -15,4 +15,5 @@ const configureAppStore = () => {
   });
 };
 
+export { thunkAuthenticate, thunkLogin, thunkSignup };
 export default configureAppStore;

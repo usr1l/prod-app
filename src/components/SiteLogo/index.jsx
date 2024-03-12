@@ -14,7 +14,7 @@ function SiteLogo() {
         priority
         height={60}
         width={120}
-        src={`/temp-logo.jpg`}
+        src={`/logo.png`}
         alt='Home'></Image>
     </Link>
   )

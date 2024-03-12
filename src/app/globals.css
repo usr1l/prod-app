@@ -2,4 +2,49 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* @layer base {} */
+@layer components {
+  .main {
+    display: flex;
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .page {
+    display: flex;
+    width: auto;
+    min-height: 100vh;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 80px;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform-origin: bottom;
+  }
+
+  .slide-out {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    transform-origin: top;
+  }
+
+}

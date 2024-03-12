@@ -1,18 +1,19 @@
 
 import React from "react";
 import { Inter } from "next/font/google";
-import StoreProvider from "./StoreProvider";
-import Navigation from "@components/Navigation";
-import { ModalProvider, Modal } from "@context/Modal";
+import { Suspense } from "react";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { ModalProvider, Modal } from "@context/Modal";
+import Error from "./error";
+import StoreProvider from "./StoreProvider";
+import Loading from "./loading";
+import App from "./App";
+import '@app/globals.css';
 
 // allow use of fontawesome icons
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
-
-import Error from "./error";
-import "./globals.css";
 
 const inter = Inter({ subsets: [ "latin" ] });
 
@@ -22,18 +23,15 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-
-
-
   return (
     <React.StrictMode >
       <html lang="en">
-        <body className="h-auto w-auto flex flex-col box-border">
+        <body className="tracking-wide min-h-screen">
           <ModalProvider>
             <StoreProvider>
-              <Navigation />
               <ErrorBoundary fallback={<Error />} />
-              {children}
+              <Suspense fallback={<Loading />} />
+              <App children={children} />
               <Modal />
             </StoreProvider>
           </ModalProvider>
