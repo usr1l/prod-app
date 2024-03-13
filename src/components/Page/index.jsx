@@ -2,10 +2,11 @@ import React from 'react';
 import '@app/globals.css';
 
 export default function Page({
-  children
+  children,
+  className
 }) {
   return (
-    <div className='page'>
+    <div className={`page ${className}`}>
       {children}
     </div>
   )
