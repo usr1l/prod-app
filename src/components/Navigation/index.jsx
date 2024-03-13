@@ -15,11 +15,15 @@ export default function Navigation() {
 
   return (
     <nav
-      className="flex w-auto items-center shadow-lg box-border justify-between sticky h-20 bg-white top-0 right-0 left-0 z-50 border-b border-gray-400 px-6"
+      className="flex w-auto items-center shadow-lg box-border justify-between sticky h-24 bg-white top-0 right-0 left-0 z-50 px-6"
     >
-      <SiteLogo />
+      <SiteLogo height={60} width={120} />
       <SearchBar placeholder={'Search'} icon={'/search.png'} />
-      <Button buttonText={'Generate'} icon={'/sparkles.png'} />
+      <Button buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'rounded-3xl shadow-sm bg-zinc-900 text-white'} />
+      <Button buttonText={'Tools'} className={''} />
+      <Button buttonText={'Community'} />
+      <Button buttonText={'Login'} />
+      <Button buttonText={'Sign Up'} />
       {sessionUser && (
         <ProfileButton user={sessionUser} />
       )}
