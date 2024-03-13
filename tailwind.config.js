@@ -23,7 +23,7 @@ module.exports = {
       borderWidth: {
         "card": "1px",
       },
-      width: {
+      minWidth: {
         "logo": "130px",
       },
     },

@@ -8,6 +8,7 @@ import { LoginFormModal, SignupFormModal } from '../../components/Modals';
 import { FlashCard, TiltCard } from '../../components/Card';
 import { useRouter } from 'next/navigation';
 import '../globals.css';
+import Button from '@components/Button';
 
 function Login() {
 
@@ -34,12 +35,43 @@ function Login() {
   };
 
   return (
-    <div></div>
+    <>
+      {isLoaded && (
+        <main
+          className='w-auto flex flex-col mt-0 p-0 relative'>
+          <img
+            loading='lazy'
+            src='/heroimage.png'
+            className='absolute inset-0 z-0 min-h-[400px] min-w-[1000px]'
+          />
+          <div
+            className='w-auto z-10 flex flex-col justify-center items-center pt-16'
+          >
+            <div className="text-[max(6vw,3rem)] text-zinc-900 mb-4">NODE</div>
+            <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center text-zinc-900 mb-4">
+              The New Era of Learning: <br /> Personal, Powerful, and Purposeful
+            </h1>
+            <Button buttonText={'Join Now'} containerClass={'h-[max(10vw,110px)]'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[max(1.5vw,20px)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(2.5vw,45px)] w-[max(12vw,150px)]'} />
+          </div>
+          <div className='flex items-center justify-center h-[80px] w-auto'>
+            <section className="text-center z-10 mt-80">
+              <h2 className="text-2xl font-semibold leading-8 text-zinc-900">
+                Transform your learning experience with NODE.
+              </h2>
+              <p>
+                Your education journey will be personalized with AI-driven tools, to align perfectly with your ambitions, learning pace, and style.
+              </p>
+              <p>
+                Sign up now for immediate access to a platform that adapts to your need without traditional learning barriers and constraints.
+              </p>
+            </section>
+          </div>
+        </main>
+      )}
+    </>
   )
   // // to use framer motion, specify key, exit and transition mode, such as the "layout" prop
   // return (
-  //   <>
-  //     {isLoaded && (
   //       <main className='main bg-gray-500'>
   //         <section
   //           className='center box-border h-full w-96 bg-black left-0 top-0 bottom-0 mx-0 flex flex-col relative overflow-hidden'
@@ -61,8 +93,6 @@ function Login() {
   //         <div className='center mt-12'>
   //         </div>
   //       </main>
-  //     )}
-  //   </>
   // )
 };
 
