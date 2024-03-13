@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence, motion } from 'framer-motion';
 import { thunkLogin } from '../../lib/store/index';
 import { LoginFormModal, SignupFormModal } from '../../components/Modals';
-import Card, { FlashCard, TiltCard } from '../../components/Card';
+import Card, { FlashCard, TiltCard, FlipCard } from '../../components/Card';
 import { useRouter } from 'next/navigation';
-import '../globals.css';
 import Button from '@components/Button';
 import Page from '@components/Page';
+import '../globals.css';
 
 function Login() {
 
@@ -63,7 +63,7 @@ function Login() {
               Sign up now for immediate access to a platform that adapts to your need without traditional learning barriers and constraints.
             </p>
             <div>
-              <Card />
+              <FlipCard />
             </div>
           </Page>
         </main>

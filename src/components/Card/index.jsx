@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import TiltCard from './TiltCard';
 import FlashCard from './FlashCard';
+import FlipCard from './FlipCard';
 import './card.css';
 
 // base card component
@@ -46,4 +47,4 @@ export default function Card({
   )
 };
 
-export { TiltCard, FlashCard };
+export { TiltCard, FlashCard, FlipCard };
