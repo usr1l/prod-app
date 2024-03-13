@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import Button from '@components/Button';
+import { useMotionValue, useSpring } from 'framer-motion';
 
 function FlipCard({
   front,
-  back
+  back,
+  icon
 }) {
   const [ flipped, setFlipped ] = useState(false);
 
@@ -30,34 +30,20 @@ function FlipCard({
 
   return (
     <ReactCardFlip
-      containerClassName='w-full'
+      containerClassName='w-full box-border'
       flipDirection='horizontal'
       isFlipped={flipped}>
       <div
-        className='hover:cursor-pointer relative'
+        className='hover:cursor-pointer relative box-border'
         onClick={handleMouseClick}
       >{front}
-        <div
-          style={{
-            transformStyle: 'ease-in-out',
-            transitionDuration: '0.3s',
-          }}
-          className="bg-zinc-900 w-[60px] h-[60px] rounded-full flex justify-center items-center absolute bottom-16 right-20 hover:bg-zinc-500" >
-          <img src='/flipicon.png' className='w-[30px] h-[30px]' />
-        </div>
+        {icon}
       </div>
       <div
-        className='hover:cursor-pointer'
+        className='hover:cursor-pointer box-border'
         onClick={handleMouseClick}
       >{back}
-        <div
-          style={{
-            transformStyle: 'ease-in-out',
-            transitionDuration: '0.3s',
-          }}
-          className="bg-zinc-900 w-[60px] h-[60px] rounded-full flex justify-center items-center absolute bottom-16 right-20 hover:bg-zinc-500" >
-          <img src='/flipicon.png' className='w-[30px] h-[30px]' />
-        </div>
+        {icon}
       </div>
     </ReactCardFlip>
   )

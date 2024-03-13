@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import Button from '@components/Button';
 import Page from '@components/Page';
 import '../globals.css';
+import Icon from '@components/Button/FlipIcon';
 
 function Login() {
 
@@ -64,7 +65,11 @@ function Login() {
               <FlipCard
                 front={<img src='/flashcard-1.png' loading='lazy' />}
                 back={<img src='/flashcard-2.png' loading='lazy' />}
+                icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
+              <div className='flex w-auto'>
+
+              </div>
             </div>
           </Page>
         </main>
