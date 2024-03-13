@@ -2,10 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AnimatePresence, motion } from 'framer-motion';
 import { thunkLogin } from '../../lib/store/index';
-import { LoginFormModal, SignupFormModal } from '../../components/Modals';
-import Card, { FlashCard, TiltCard, FlipCard } from '../../components/Card';
+import { FlipCard } from '../../components/Card';
 import { useRouter } from 'next/navigation';
 import Button from '@components/Button';
 import Page from '@components/Page';
@@ -52,18 +50,21 @@ function Login() {
             <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center text-zinc-900 mb-2">
               The New Era of Learning: <br /> Personal, Powerful, and Purposeful
             </h1>
-            <Button buttonText={'Join Now'} containerClass={'h-[max(10.5vw,120px)]'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[max(1.4vw,16px)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,35px)] w-[min(18vw,200px)]'} />
+            <Button buttonText={'Join Now'} containerClass={'h-[max(11vw,120px)]'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[max(1.5vw,16px)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,35px)] w-[max(18vw,120px)]'} />
           </div>
-          <Page className="text-center z-10 mt-40 relative mx-10 flex flex-col items-center ">
-            <h2 className="text-3xl font-semibold leading-8 text-zinc-900 mb-4">
+          <Page className="text-left z-10 mt-40 6relative mx-10 flex flex-col items-center ">
+            <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(65vw,900px)]">
               Transform your learning experience with NODE.
-            </h2>
-            <p className='max-w-[70vw]'>
               Your education journey will be personalized with AI-driven tools, to align perfectly with your ambitions, learning pace, and style.
               Sign up now for immediate access to a platform that adapts to your need without traditional learning barriers and constraints.
-            </p>
-            <div>
-              <FlipCard />
+            </h2>
+            <div
+              className='flex flex-col items-center w-[max(85vw,1000px)] mt-12 px-20'
+            >
+              <FlipCard
+                front={<img src='/flashcard-1.png' loading='lazy' />}
+                back={<img src='/flashcard-2.png' loading='lazy' />}
+              />
             </div>
           </Page>
         </main>

@@ -12,7 +12,8 @@ const Button = ({
   icon,
   alt,
   rightIcon,
-  containerClass
+  containerClass,
+  imgClass
 }) => {
 
   return (
@@ -28,7 +29,7 @@ const Button = ({
           <img
             loading="lazy"
             src={icon}
-            className="shrink-0 my-auto aspect-[0.74]] w-[11px]"
+            className={`shrink-0 my-auto aspect-[0.74]] w-[11px] ${imgClass}`}
             alt={alt}
           />
         )}
@@ -39,7 +40,7 @@ const Button = ({
           <img
             loading="lazy"
             src={icon}
-            className="shrink-0 my-auto aspect-[0.74] w-[11px]"
+            className={`shrink-0 my-auto aspect-[0.74]] w-[11px] ${imgClass}`}
             alt={alt}
           />
         )}
