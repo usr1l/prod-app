@@ -2,17 +2,20 @@
 
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { thunkLogin } from "@store/session";
+import { thunkSignup } from "@store/session";
 import { useModal } from "@context/Modal";
 import { SlideUpTransition } from "@components/Transition";
-import './modals.css';
 import InputDiv from "@components/InputDiv";
+import { useRouter } from "next/navigation";
+import './modals.css';
 
 function SignupFormModal({
   className,
   key
 }) {
   const dispatch = useDispatch();
+  const router = useRouter();
+
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ username, setUsername ] = useState("");
@@ -24,12 +27,7 @@ function SignupFormModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = dispatch(thunkLogin(email, password));
-    if (data) {
-      setErrors(data);
-    } else {
-      closeModal()
-    }
+    const data = dispatch(thunkSignup({ email, password, username, firstname, lastname }));
   };
 
   return (

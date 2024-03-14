@@ -19,18 +19,9 @@ function LoginFormModal({
   const [ errors, setErrors ] = useState({});
   const { closeModal } = useModal();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const res = await dispatch(thunkLogin({ email, password }))
-    if (res.payload?.errors) {
-      setErrors(res.payload.errors);
-      return
-    } else {
-      setErrors({});
-    }
-
-    redirect('/home');
-    return
+    const data = dispatch(thunkLogin({ email, password }));
   };
 
   return (

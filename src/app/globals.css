@@ -18,8 +18,8 @@
     min-height: 100vh;
     flex-direction: column;
     box-sizing: border-box;
-    padding-top: 80px;
   }
+
 
   .center {
     display: flex;

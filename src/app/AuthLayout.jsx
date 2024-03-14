@@ -25,9 +25,7 @@ export default function AuthLayout({ children }) {
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/login');
-    } else if (status === 'authenticated') {
-      router.push('/');
-    };
+    }
   }, [ status, router ]);
 
   return (

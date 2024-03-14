@@ -7,14 +7,19 @@ import '@app/globals.css';
 
 // Image needs height and width to be set, or fill set to true
 
-function SiteLogo() {
+function SiteLogo({
+  height,
+  width,
+  fill
+}) {
   return (
-    <Link href='/' className="flex items-center justify-center h-full box-border w-logo">
+    <Link href='/' className="flex items-center justify-center h-full box-border min-w-logo mx-2">
       <Image
         priority
-        height={60}
-        width={120}
-        src={`/temp-logo.jpg`}
+        height={height}
+        width={width}
+        fill={fill}
+        src={`/logo.png`}
         alt='Home'></Image>
     </Link>
   )

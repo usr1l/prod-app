@@ -5,9 +5,10 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from api.config import Config
-from api.models import db, User, FlashCard, Deck, Task, Note, deck_users
-from api.seeds import seed_commands, undo_users, seed_users, seed_flashcards, undo_flashcards, seed_decks, undo_decks, seed_notes, undo_notes, seed_tasks, undo_tasks
+from api.models import db, User, FlashCard, Deck, Note, Task, deck_users
 from api.routes import auth_routes, user_routes
+from api.seeds import seed_commands, seed_decks, undo_decks, seed_flashcards, undo_flashcards, seed_notes, undo_notes, seed_tasks, undo_tasks, seed_users, undo_users
+
 
 app = Flask(__name__)
 
@@ -35,9 +36,24 @@ Migrate(app, db)
 CORS(app, supports_credentials=True)
 
 # create tables in the vercel postgres database
+# create tables in the vercel postgres database
 if os.environ.get('FLASK_ENV') == 'production':
     with app.app_context():
         db.create_all()
+
+        # first unseed all tables
+        undo_notes()
+        undo_tasks()
+        undo_flashcards()
+        undo_decks()
+        undo_users()
+
+        # then seed all tables
+        seed_users()
+        seed_decks()
+        seed_flashcards()
+        seed_tasks()
+        seed_notes()
 
         # first unseed all tables
         undo_notes()

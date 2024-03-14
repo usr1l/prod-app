@@ -1,5 +1,9 @@
 from flask.cli import AppGroup
-from .seed import seed_users, undo_users, seed_flashcards, undo_flashcards, seed_decks, undo_decks, seed_notes, undo_notes, seed_tasks, undo_tasks
+from .users import seed_users, undo_users
+from .decks import seed_decks, undo_decks
+from .flashcards import seed_flashcards, undo_flashcards
+from .notes import seed_notes, undo_notes
+from .tasks import seed_tasks, undo_tasks
 from api.models import db, environment
 
 # Creates a seed group to hold our commands
