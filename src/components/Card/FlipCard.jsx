@@ -5,7 +5,8 @@ import { useMotionValue, useSpring } from 'framer-motion';
 function FlipCard({
   front,
   back,
-  icon
+  icon,
+  containerClass
 }) {
   const [ flipped, setFlipped ] = useState(false);
 
@@ -30,17 +31,17 @@ function FlipCard({
 
   return (
     <ReactCardFlip
-      containerClassName='w-full box-border'
+      containerClassName={`w-full box-border ${containerClass}`}
       flipDirection='horizontal'
       isFlipped={flipped}>
       <div
-        className='hover:cursor-pointer relative box-border'
+        className='hover:cursor-pointer relative box-border flex items-center justify-center w-full h-full'
         onClick={handleMouseClick}
       >{front}
         {icon}
       </div>
       <div
-        className='hover:cursor-pointer box-border'
+        className='hover:cursor-pointer box-border flex items-center justify-center w-full h-full'
         onClick={handleMouseClick}
       >{back}
         {icon}

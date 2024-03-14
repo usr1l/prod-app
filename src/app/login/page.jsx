@@ -53,30 +53,44 @@ function Login() {
             <Button containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[min(2.5vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
           </div>
           <Page className="text-left z-10 mt-40 6relative mx-10 flex flex-col items-center ">
-            <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(65vw,900px)]">
+            <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(60vw,900px)]">
               Transform your learning experience with NODE.
               Your education journey will be personalized with AI-driven tools, to align perfectly with your ambitions, learning pace, and style.
               Sign up now for immediate access to a platform that adapts to your need without traditional learning barriers and constraints.
             </h2>
             <div
-              className='flex flex-col items-center w-[max(85vw,1000px)] mt-12 px-20'
+              className='flex flex-col items-center w-[1350px] mt-12 px-20'
             >
               <FlipCard
                 front={<img src='/flashcard-1.png' loading='lazy' />}
                 back={<img src='/flashcard-2.png' loading='lazy' />}
                 icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
-              <div className='flex w-full'>
+              <div className='flex w-full justify-center items-center'>
                 <div
-                  className='w-1/2 h-[300px] border-2 border-black'
-                ><FlipCard />
+                  className='w-1/2 flex justify-center items-center'
+                ><FlipCard
+                    front={<img src='/flashcard-2f.png' loading='lazy' />}
+                    back={<img src='/flashcard-2b.png' loading='lazy' />}
+                    icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+                  />
                 </div>
                 <div
-                  className='w-1/2 h-[300px] border-2 border-black'
-                ><FlipCard />
+                  className='w-1/2 flex justify-center items-center'
+                ><FlipCard
+                    front={<img src='/flashcard-3f.png' loading='lazy' />}
+                    back={<img src='/flashcard-3b.png' loading='lazy' />}
+                    icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+                  />
                 </div>
               </div>
+              <FlipCard
+                front={<img src='/flashcard-4f.png' loading='lazy' />}
+                back={<img src='/flashcard-4b.png' loading='lazy' />}
+              // icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+              />
             </div>
+            <div></div>
           </Page>
         </main>
       )}

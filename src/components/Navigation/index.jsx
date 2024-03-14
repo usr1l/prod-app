@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from 'react';
 import ProfileButton from './ProfileButton';
 import SiteLogo from "@components/SiteLogo";
 import BottomNav from "./BottomNav";
@@ -19,7 +18,7 @@ export default function Navigation({ sessionUser }) {
         className="h-full flex items-center box-border mr-auto"
       >
         <SearchBar placeholder={'Search'} icon={'/search.png'} containerClass={'w-[max(30vw,16rem)]'} />
-        <Button buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10'} containerClass={'mr-2'} />
+        <Button buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10'} containerClass={''} />
       </div>
       <div
         className="h-full flex items-center box-border">
