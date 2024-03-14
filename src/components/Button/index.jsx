@@ -17,7 +17,7 @@ const Button = ({
 }) => {
 
   return (
-    <div className={`flex justify-center items-center h-full ${containerClass}`}>
+    <div className={`flex justify-center items-center ${containerClass}`}>
       <button
         className={`flex gap-1 justify-center box-border px-4 py-2 text-base rounded-3xl text-center whitespace-nowrap ${buttonClass}`}
         onClick={onClick}
@@ -33,9 +33,11 @@ const Button = ({
             alt={alt}
           />
         )}
-        <span className='grow'>
-          {buttonText}
-        </span>
+        {buttonText && (
+          <span className='grow'>
+            {buttonText}
+          </span>
+        )}
         {icon && rightIcon && (
           <img
             loading="lazy"

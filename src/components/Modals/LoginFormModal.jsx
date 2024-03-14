@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { redirect } from "next/navigation";
 import { thunkLogin } from "@lib/store";
 import { useModal } from "../../context/Modal";
 import { SlideUpTransition } from "@components/Transition";
