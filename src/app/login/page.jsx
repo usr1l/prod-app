@@ -51,7 +51,7 @@ function Login() {
             <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center text-zinc-900 mb-2">
               The New Era of Learning: <br /> Personal, Powerful, and Purposeful
             </h1>
-            <Button buttonText={'Join Now'} containerClass={'h-[max(11.5vw,120px)]'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[max(1.5vw,16px)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,35px)] w-[max(18vw,120px)]'} />
+            <Button buttonText={'Join Now'} containerClass={'h-[max(11vw,120px)]'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[max(1.5vw,16px)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,35px)] w-[max(18vw,120px)]'} />
           </div>
           <Page className="text-left z-10 mt-40 6relative mx-10 flex flex-col items-center ">
             <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(65vw,900px)]">

@@ -10,6 +10,7 @@ const initialState = {
   errors: null
 };
 
+
 // thunk for testing connection
 export const thunkTest = createAsyncThunk(
   'session/test',
@@ -122,6 +123,7 @@ const sessionSlice = createSlice({
       state.errors = null;
     },
     test: (state, action) => {}
+
   },
   extraReducers: builder => {
     builder
