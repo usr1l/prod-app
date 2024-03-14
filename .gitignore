@@ -39,3 +39,8 @@ next-env.d.ts
 .random
 instance/dev.db
 migrations/versions/*
+
+.venv/
+.next/
+.vercel/
+node_modules/

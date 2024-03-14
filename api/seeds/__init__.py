@@ -4,7 +4,7 @@ from .decks import seed_decks, undo_decks
 from .flashcards import seed_flashcards, undo_flashcards
 from .notes import seed_notes, undo_notes
 from .tasks import seed_tasks, undo_tasks
-from api.models import db, environment
+from api.models import environment
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`

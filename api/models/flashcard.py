@@ -1,4 +1,4 @@
-from . import db, environment
+from . import db
 from datetime import datetime
 
 
