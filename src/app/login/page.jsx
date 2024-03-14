@@ -68,7 +68,12 @@ function Login() {
                 icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
               <div className='flex w-auto'>
-
+                <div
+                  className='w-[300px] h-[300px] border-2 border-black'
+                ></div>
+                <div
+                  className='w-[300px] h-[300px] border-2 border-black'
+                ></div>
               </div>
             </div>
           </Page>

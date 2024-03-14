@@ -1,4 +1,4 @@
-from . import db, environment, deck_users
+from . import db, deck_users
 from datetime import datetime
 
 # # many-to-many table for decks and flashcards

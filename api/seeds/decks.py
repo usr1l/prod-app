@@ -1,6 +1,5 @@
 from api.models import db, Deck, environment
 from sqlalchemy.sql import text
-from datetime import datetime
 
 
 def seed_decks():
