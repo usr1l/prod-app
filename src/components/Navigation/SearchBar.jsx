@@ -13,7 +13,6 @@ function SearchBar({
     <div className={`flex items-center px-2 mx-4 justify-center gap-1 py-2 text-base font-medium rounded-3xl box-border border border-solid border-zinc-900 text-zinc-900 text-opacity-50 ${containerClass}`}>
       {icon && (
         <img
-          loading="lazy"
           src={icon}
           className="shrink-0 aspect-square w-[25px]"
           alt={alt} />

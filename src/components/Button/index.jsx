@@ -27,7 +27,6 @@ const Button = ({
       >
         {icon && !rightIcon && (
           <img
-            loading="lazy"
             src={icon}
             className={`shrink-0 my-auto aspect-[0.74]] w-[11px] ${imgClass}`}
             alt={alt}
@@ -40,7 +39,6 @@ const Button = ({
         )}
         {icon && rightIcon && (
           <img
-            loading="lazy"
             src={icon}
             className={`shrink-0 my-auto aspect-[0.74]] w-[11px] ${imgClass}`}
             alt={alt}
