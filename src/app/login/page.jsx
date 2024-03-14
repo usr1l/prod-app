@@ -40,7 +40,7 @@ function Login() {
           className='w-auto flex flex-col mt-0 p-0 relative'>
           <img
             src='/heroimage.png'
-            className='absolute inset-0 z-0 min-h-[475px] min-w-[1000px]'
+            className='absolute inset-0 z-0 min-h-[475px] min-w-[1000px] overflow-hidden'
           />
           <div
             className='w-auto z-10 flex flex-col justify-center items-center pt-20'
