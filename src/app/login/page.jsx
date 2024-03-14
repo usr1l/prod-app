@@ -39,7 +39,6 @@ function Login() {
         <main
           className='w-auto flex flex-col mt-0 p-0 relative'>
           <img
-            loading='lazy'
             src='/heroimage.png'
             className='absolute inset-0 z-0 min-h-[475px] min-w-[1000px]'
           />
@@ -62,31 +61,31 @@ function Login() {
               className='flex flex-col items-center w-[1350px] mt-12 px-20'
             >
               <FlipCard
-                front={<img src='/flashcard-1.png' loading='lazy' />}
-                back={<img src='/flashcard-2.png' loading='lazy' />}
+                front={<img src='/flashcard-1.png' />}
+                back={<img src='/flashcard-2.png' />}
                 icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
               <div className='flex w-full justify-center items-center'>
                 <div
                   className='w-1/2 flex justify-center items-center'
                 ><FlipCard
-                    front={<img src='/flashcard-2f.png' loading='lazy' />}
-                    back={<img src='/flashcard-2b.png' loading='lazy' />}
+                    front={<img src='/flashcard-2f.png' />}
+                    back={<img src='/flashcard-2b.png' />}
                     icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
                   />
                 </div>
                 <div
                   className='w-1/2 flex justify-center items-center'
                 ><FlipCard
-                    front={<img src='/flashcard-3f.png' loading='lazy' />}
-                    back={<img src='/flashcard-3b.png' loading='lazy' />}
+                    front={<img src='/flashcard-3f.png' />}
+                    back={<img src='/flashcard-3b.png' />}
                     icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
                   />
                 </div>
               </div>
               <FlipCard
-                front={<img src='/flashcard-4f.png' loading='lazy' />}
-                back={<img src='/flashcard-4b.png' loading='lazy' />}
+                front={<img src='/flashcard-4f.png' />}
+                back={<img src='/flashcard-4b.png' />}
               // icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
             </div>
