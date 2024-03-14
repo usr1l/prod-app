@@ -5,6 +5,7 @@ export default function Page({
   children,
   className
 }) {
+
   return (
     <div className={`page ${className}`}>
       {children}
