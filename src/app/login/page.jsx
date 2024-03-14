@@ -11,7 +11,6 @@ import Icon from '@components/Button/FlipIcon';
 import '../globals.css';
 
 function Login() {
-
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -47,35 +46,51 @@ function Login() {
           <div
             className='w-auto z-10 flex flex-col justify-center items-center pt-20'
           >
-            <div className="text-[max(6vw,3rem)] text-zinc-900 mb-6">NODE</div>
+            <div className="text-[max(6vw,3rem)] text-zinc-900 mb-6 mt-2">NODE</div>
             <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center text-zinc-900 mb-2">
               The New Era of Learning: <br /> Personal, Powerful, and Purposeful
             </h1>
-            <Button buttonText={'Join Now'} containerClass={'h-[max(12vw,120px)]'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[max(1.5vw,16px)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,35px)] w-[max(18vw,120px)]'} />
+            <Button containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[min(2.5vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
           </div>
           <Page className="text-left z-10 mt-40 6relative mx-10 flex flex-col items-center ">
-            <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(65vw,900px)]">
+            <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(60vw,900px)]">
               Transform your learning experience with NODE.
               Your education journey will be personalized with AI-driven tools, to align perfectly with your ambitions, learning pace, and style.
               Sign up now for immediate access to a platform that adapts to your need without traditional learning barriers and constraints.
             </h2>
             <div
-              className='flex flex-col items-center w-[max(85vw,1000px)] mt-12 px-20'
+              className='flex flex-col items-center w-[1350px] mt-12 px-20'
             >
               <FlipCard
                 front={<img src='/flashcard-1.png' loading='lazy' />}
                 back={<img src='/flashcard-2.png' loading='lazy' />}
                 icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
-              <div className='flex w-auto'>
+              <div className='flex w-full justify-center items-center'>
                 <div
-                  className='w-[300px] h-[300px] border-2 border-black'
-                ></div>
+                  className='w-1/2 flex justify-center items-center'
+                ><FlipCard
+                    front={<img src='/flashcard-2f.png' loading='lazy' />}
+                    back={<img src='/flashcard-2b.png' loading='lazy' />}
+                    icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+                  />
+                </div>
                 <div
-                  className='w-[300px] h-[300px] border-2 border-black'
-                ></div>
+                  className='w-1/2 flex justify-center items-center'
+                ><FlipCard
+                    front={<img src='/flashcard-3f.png' loading='lazy' />}
+                    back={<img src='/flashcard-3b.png' loading='lazy' />}
+                    icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+                  />
+                </div>
               </div>
+              <FlipCard
+                front={<img src='/flashcard-4f.png' loading='lazy' />}
+                back={<img src='/flashcard-4b.png' loading='lazy' />}
+              // icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+              />
             </div>
+            <div></div>
           </Page>
         </main>
       )}

@@ -2,6 +2,29 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* scrollbar */
+::-webkit-scrollbar-thumb {
+  background: var(--site-gray);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+/* hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+  transition: 0.5s;
+}
+
 @layer components {
   .main {
     display: flex;

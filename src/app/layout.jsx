@@ -26,12 +26,12 @@ export default async function RootLayout({ children }) {
   return (
     <React.StrictMode >
       <html lang="en">
-        <body className="tracking-wide min-h-screen">
+        <body className="tracking-wide min-h-screen w-vw overflow-x-hidden min-w-[600px] overflow-y-scroll">
           <ModalProvider>
             <StoreProvider>
               <ErrorBoundary fallback={<Error />} />
               <Suspense fallback={<Loading />} />
-              <App >
+              <App>
                 {children}
               </App>
               <Modal />
