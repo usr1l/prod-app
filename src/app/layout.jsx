@@ -28,7 +28,7 @@ export const open_sans_init = Open_Sans({
   variable: "font-open-sans",
 });
 
-export default async function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <React.StrictMode >
       <html lang="en" className={inter.className}>

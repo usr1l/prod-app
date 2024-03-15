@@ -1,4 +1,5 @@
 import SignupFormModal from "./SignupFormModal";
 import LoginFormModal from "./LoginFormModal";
+import RegisterModal from "./RegisterModal";
 
-export { SignupFormModal, LoginFormModal };
+export { SignupFormModal, LoginFormModal, RegisterModal };
