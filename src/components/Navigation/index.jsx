@@ -18,18 +18,21 @@ export default function Navigation({ sessionUser }) {
         className="h-full flex items-center box-border mr-auto"
       >
         <SearchBar placeholder={'Search'} icon={'/search.png'} containerClass={'w-[max(30vw,16rem)]'} />
-        <Button buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10'} />
+        <Button disableButton={true} buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10 disabled:bg-zinc-500'} />
       </div>
       <div
         className="h-full flex items-center box-border">
-        <Button buttonText={'Tools'} icon={'/arrowdown.png'} rightIcon={true} containerClass={'hidden lg:flex h-full'} />
-        <Button buttonText={'Community'} buttonClass={'hover:border-bottom-blue-300'} containerClass={'mr-12 hidden lg:flex h-full'} />
         {sessionUser ? (
-          <ProfileButton user={sessionUser} />
+          <>
+            <Button buttonText={'Library'} containerClass={'mr-12 hidden border-box lg:flex h-full hover:border-b-2 hover:border-blue-300 cursor-pointer'} />
+            <Button buttonText={'Tools'} icon={'/arrowdown.png'} rightIcon={true} containerClass={'hidden lg:flex h-full hover:border-b-2 hover:border-blue-300 cursor-pointer'} />
+            <Button buttonText={'Community'} containerClass={'mr-12 hidden border-box lg:flex h-full hover:border-b-2 hover:border-blue-300 cursor-pointer'} />
+            <ProfileButton user={sessionUser} />
+          </>
         ) : (
           <>
-            <Button buttonText={'Login'} buttonClass={'hover:font-bold w-24'} />
-            <Button buttonText={'Sign Up'} buttonClass={'bg-blue-300 text-black w-24 hover:bg-blue-400'} />
+            <Button buttonText={'Login'} buttonClass={'hover:bg-zinc-200 w-24 mr-4'} />
+            <Button buttonText={'Sign Up'} buttonClass={'bg-blue-300 w-24 hover:bg-blue-400'} />
           </>
         )}
       </div>

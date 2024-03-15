@@ -15,7 +15,8 @@ module.exports = {
       },
       backgroundColor: {
         "sage": "rgb(138, 154, 91)",
-        "modal": "rgba(0, 0, 0, 0.7)"
+        "modal": "rgba(0, 0, 0, 0.7)",
+        "site-black": "#1C1C1E"
       },
       boxShadow: {
         "top-left-light": "-6px -6px 12px 6px rgb(0 0 0 / .2)",
@@ -26,6 +27,13 @@ module.exports = {
       minWidth: {
         "logo": "130px",
       },
+      borderColor: {
+        "site-black": "#1C1C1E",
+      },
+      textColor: {
+        "sage": "rgb(138, 154, 91)",
+        "site-black": "#1C1C1E",
+      }
     },
     screens: {
       'sm': '480px',

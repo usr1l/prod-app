@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
   return (
     <React.StrictMode >
       <html lang="en" className={inter.className}>
-        <body className={`tracking-wide min-h-screen w-vw overflow-x-hidden min-w-[600px] overflow-y-scroll ${open_sans_init.variable}`}>
+        <body className={`text-site-black tracking-wide min-h-screen w-vw overflow-x-hidden min-w-[600px] overflow-y-scroll ${open_sans_init.variable}`}>
           <ModalProvider>
             <StoreProvider>
               <ErrorBoundary fallback={<Error />} />
