@@ -45,3 +45,5 @@ migrations/versions/*
 .vercel/
 node_modules/
 .flaskenv
+Pipfile.lock
+Pipfile
