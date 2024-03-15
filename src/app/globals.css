@@ -27,12 +27,12 @@
 
 @layer components {
   .main {
-    display: flex;
-    position: absolute;
+    display: block;
+    position: relative;
     inset: 0;
     box-sizing: border-box;
     min-height: 100vh;
-    width: 100%;
+    /* width: 100%; */
   }
 
   .page {

@@ -37,28 +37,28 @@ function Login() {
     <>
       {isLoaded && (
         <main
-          className='w-auto flex flex-col mt-0 p-0 relative'>
+          className='w-auto flex flex-col mt-0 p-0 relative items-center z-10'>
           <img
             src='/heroimage.png'
-            className='absolute inset-0 z-0 min-h-[475px] min-w-[1000px]'
+            className='absolute inset-0 z-0 min-h-[475px] min-w-[1000px] overflow-hidden'
           />
           <div
             className='w-auto z-10 flex flex-col justify-center items-center pt-20'
           >
-            <div className="text-[max(6vw,3rem)] text-zinc-900 mb-6 mt-2">NODE</div>
-            <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center text-zinc-900 mb-2">
+            <div className="text-[max(6vw,3rem)] mb-6 mt-2">NODE</div>
+            <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center mb-2">
               The New Era of Learning: <br /> Personal, Powerful, and Purposeful
             </h1>
-            <Button containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[min(2.5vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
+            <Button containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
           </div>
-          <Page className="text-left z-10 mt-40 6relative mx-10 flex flex-col items-center ">
-            <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(60vw,900px)]">
+          <Page className="text-left z-10 mt-40 relative w-[1140px] flex flex-col items-center justify-center">
+            <h2 className="text-[22px] leading-8 mb-4 px-20 w-[1010px] font-semibold">
               Transform your learning experience with NODE.
               Your education journey will be personalized with AI-driven tools, to align perfectly with your ambitions, learning pace, and style.
               Sign up now for immediate access to a platform that adapts to your need without traditional learning barriers and constraints.
             </h2>
             <div
-              className='flex flex-col items-center w-[1350px] mt-12 px-20'
+              className='flex flex-col items-center w-full mt-12 px-20'
             >
               <FlipCard
                 front={<img src='/flashcard-1.png' />}
@@ -84,13 +84,22 @@ function Login() {
                 </div>
               </div>
               <FlipCard
+                containerClass={'w-full'}
                 front={<img src='/flashcard-4f.png' />}
                 back={<img src='/flashcard-4b.png' />}
-              // icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+                icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
             </div>
-            <div></div>
           </Page>
+          <div
+            className='w-full z-0 -mt-64 relative'
+          >
+            <img
+              src='/homebottom.png'
+              className='w-full'
+            />
+            <Button buttonText={'Join Now'} containerClass={'absolute z-20 left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%]'} buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
+          </div>
         </main>
       )}
     </>

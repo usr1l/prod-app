@@ -13,12 +13,23 @@ const Button = ({
   alt,
   rightIcon,
   containerClass,
-  imgClass
+  imgClass,
+  containerOnClick
 }) => {
 
   return (
-    <div className={`flex justify-center items-center ${containerClass}`}>
+    <div
+      onClick={containerOnClick}
+      style={{
+        transitionDuration: '0.3s',
+        transformStyle: 'ease-in-out',
+      }}
+      className={`flex justify-center items-center ${containerClass}`}>
       <button
+        style={{
+          transitionDuration: '0.3s',
+          transformStyle: 'ease-in-out',
+        }}
         className={`flex gap-1 justify-center box-border px-4 py-2 text-base rounded-3xl text-center whitespace-nowrap ${buttonClass}`}
         onClick={onClick}
         type={type}
