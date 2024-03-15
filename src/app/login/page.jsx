@@ -51,21 +51,22 @@ function Login() {
             </h1>
             <Button containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 font-thin text-[max(1.5vw,1rem)] text-center text-white rounded-3xl shadow-sm bg-zinc-900 h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
           </div>
-          <Page className="text-left z-10 mt-40 6relative mx-10 flex flex-col items-center ">
-            <h2 className="text-[24px] leading-8 text-zinc-900 mb-4 px-20 w-[max(60vw,900px)] font-semibold">
+          <Page className="text-left z-10 mt-40 relative mx-10 flex flex-col items-center ">
+            <h2 className="text-[22px] leading-8 text-zinc-900 mb-4 px-20 w-[1015px] font-semibold">
               Transform your learning experience with NODE.
               Your education journey will be personalized with AI-driven tools, to align perfectly with your ambitions, learning pace, and style.
               Sign up now for immediate access to a platform that adapts to your need without traditional learning barriers and constraints.
             </h2>
             <div
-              className='flex flex-col items-center w-[1350px] mt-12 px-20'
+              className='flex flex-col items-center w-full mt-12 px-20'
             >
               <FlipCard
+                containerClass={'w-[995px]'}
                 front={<img src='/flashcard-1.png' />}
                 back={<img src='/flashcard-2.png' />}
                 icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
-              <div className='flex w-full justify-center items-center'>
+              <div className='flex w-[995px] justify-center items-center'>
                 <div
                   className='w-1/2 flex justify-center items-center'
                 ><FlipCard
@@ -75,7 +76,7 @@ function Login() {
                   />
                 </div>
                 <div
-                  className='w-1/2 flex justify-center items-center'
+                  className='w-1/2 flex justify-center items-center '
                 ><FlipCard
                     front={<img src='/flashcard-3f.png' />}
                     back={<img src='/flashcard-3b.png' />}
@@ -84,9 +85,10 @@ function Login() {
                 </div>
               </div>
               <FlipCard
+                containerClass={'w-[995px]'}
                 front={<img src='/flashcard-4f.png' />}
                 back={<img src='/flashcard-4b.png' />}
-              // icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
+                icon={<Icon containerClass='absolute bottom-16 right-20' icon={'/flipicon.png'} />}
               />
             </div>
             <div></div>
