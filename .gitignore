@@ -44,3 +44,4 @@ migrations/versions/*
 .next/
 .vercel/
 node_modules/
+.flaskenv
