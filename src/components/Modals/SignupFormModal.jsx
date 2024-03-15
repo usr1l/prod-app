@@ -22,10 +22,12 @@ function SignupFormModal({
   const [ lastname, setLastName ] = useState("");
   const [ confirmPassword, setConfirmPassword ] = useState("");
   const [ errors, setErrors ] = useState({});
+  const { closeModal } = useModal();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = dispatch(thunkSignup({ email, password, username, firstname, lastname }));
+    dispatch(thunkSignup({ email, password, username, firstname, lastname }))
+      .then(() => closeModal());
   };
 
   return (

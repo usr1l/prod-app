@@ -15,10 +15,12 @@ function LoginFormModal({
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ errors, setErrors ] = useState({});
+  const { closeModal } = useModal();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = dispatch(thunkLogin({ email, password }));
+    dispatch(thunkLogin({ email, password }))
+      .then(() => closeModal());
   };
 
   return (
