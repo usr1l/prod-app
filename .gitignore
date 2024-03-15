@@ -44,3 +44,6 @@ migrations/versions/*
 .next/
 .vercel/
 node_modules/
+.flaskenv
+/Pipfile.lock
+/Pipfile

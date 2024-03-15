@@ -4,14 +4,15 @@ import ProfileButton from './ProfileButton';
 import SiteLogo from "@components/SiteLogo";
 import BottomNav from "./BottomNav";
 import SearchBar from "./SearchBar";
-import Button from "@components/Button";
+import Button, { OpenModalButton } from "@components/Button";
+import { RegisterModal } from "@components/Modals";
 import '@app/globals.css';
 
 export default function Navigation({ sessionUser }) {
 
   return (
     <nav
-      className="flex justify-between w-full shadow-lg box-border sticky h-24 bg-white top-0 right-0 left-0 z-50 px-12"
+      className="flex justify-between w-full shadow-lg box-border sticky h-24 bg-white top-0 right-0 left-0 z-40 px-12"
     >
       <SiteLogo height={60} width={120} />
       <div
@@ -24,15 +25,23 @@ export default function Navigation({ sessionUser }) {
         className="h-full flex items-center box-border">
         {sessionUser ? (
           <>
-            <Button buttonText={'Library'} containerClass={'mr-12 hidden border-box lg:flex h-full hover:border-b-2 hover:border-blue-300 cursor-pointer'} />
+            <Button buttonText={'Library'} containerClass={'mr-12 hidden border-box lg:flex h-full hover:text-blue-300 cursor-pointer'} />
             <Button buttonText={'Tools'} icon={'/arrowdown.png'} rightIcon={true} containerClass={'hidden lg:flex h-full hover:border-b-2 hover:border-blue-300 cursor-pointer'} />
-            <Button buttonText={'Community'} containerClass={'mr-12 hidden border-box lg:flex h-full hover:border-b-2 hover:border-blue-300 cursor-pointer'} />
+            <Button buttonText={'Community'} containerClass={'mr-12 hidden border-box lg:flex h-full hover:text-blue-300 cursor-pointer'} />
             <ProfileButton user={sessionUser} />
           </>
         ) : (
           <>
-            <Button buttonText={'Login'} buttonClass={'hover:bg-zinc-200 w-24 mr-4'} />
-            <Button buttonText={'Sign Up'} buttonClass={'bg-blue-300 w-24 hover:bg-blue-400'} />
+            <OpenModalButton
+              buttonText={'Login'}
+              buttonClass={'hover:bg-zinc-200 w-24 mr-4'}
+              modalComponent={<RegisterModal signUp={false} />}
+            />
+            <OpenModalButton
+              buttonText={'Sign Up'}
+              buttonClass={'bg-blue-300 w-24 hover:bg-blue-400'}
+              modalComponent={<RegisterModal signUp={true} />}
+            />
           </>
         )}
       </div>

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkLogin } from "@lib/store";
 import { useModal } from "../../context/Modal";
-import { SlideUpTransition } from "@components/Transition";
 import InputDiv from "@components/InputDiv";
 import './modals.css';
 
@@ -20,14 +19,14 @@ function LoginFormModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = dispatch(thunkLogin({ email, password }));
+    dispatch(thunkLogin({ email, password }))
+      .then(() => closeModal());
   };
 
   return (
     <div
       key={key}
       className={`modal ${className}`}>
-      <h1 className="modal-header">Log In</h1>
       <form className="modal-form" onSubmit={handleSubmit}>
         <InputDiv
           label={"Email"}
@@ -60,6 +59,5 @@ function LoginFormModal({
   );
 }
 
-const WrappedLoginFormModal = SlideUpTransition(LoginFormModal);
 
-export default WrappedLoginFormModal;
+export default LoginFormModal;

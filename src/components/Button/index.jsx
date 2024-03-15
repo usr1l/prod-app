@@ -20,11 +20,7 @@ const Button = ({
   return (
     <div
       onClick={containerOnClick}
-      style={{
-        transitionDuration: '0.3s',
-        transformStyle: 'ease-in-out',
-      }}
-      className={`flex justify-center items-center ${containerClass}`}>
+      className={`flex justify-center items-center ${containerClass} box-border`}>
       <button
         style={{
           transitionDuration: '0.3s',

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { thunkLogin } from '../../lib/store/index';
 import { FlipCard } from '../../components/Card';
 import { useRouter } from 'next/navigation';
-import Button from '@components/Button';
+import Button, { OpenModalButton } from '@components/Button';
 import Page from '@components/Page';
 import Icon from '@components/Button/FlipIcon';
 import '../globals.css';
@@ -25,7 +25,7 @@ function Login() {
     } else setIsLoaded(true);
   }, [ isAuthenticated, router ]);
 
-  const handleMouseClick = () => {
+  const demoUser = () => {
     dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }))
   };
 
@@ -37,21 +37,21 @@ function Login() {
     <>
       {isLoaded && (
         <main
-          className='w-auto flex flex-col mt-0 p-0 relative items-center z-10'>
+          className='w-auto flex flex-col mt-0 p-0 relative items-center'>
           <img
             src='/heroimage.png'
-            className='absolute inset-0 z-0 min-h-[475px] min-w-[1000px] overflow-hidden'
+            className='absolute inset-0 min-h-[475px] min-w-[1000px] overflow-hidden'
           />
           <div
-            className='w-auto z-10 flex flex-col justify-center items-center pt-20'
+            className='w-auto flex flex-col justify-center items-center pt-20 z-10'
           >
             <div className="text-[max(6vw,3rem)] mb-6 mt-2">NODE</div>
-            <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center mb-2">
+            <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center mb-2 ">
               The New Era of Learning: <br /> Personal, Powerful, and Purposeful
             </h1>
-            <Button containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
+            <Button onClick={demoUser} containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
           </div>
-          <Page className="text-left z-10 mt-40 relative w-[1140px] flex flex-col items-center justify-center">
+          <Page className="text-left mt-40 relative w-[1140px] flex flex-col items-center justify-center z-10">
             <h2 className="text-[22px] leading-8 mb-4 px-20 w-[1010px] font-semibold">
               Transform your learning experience with NODE.
               Your education journey will be personalized with AI-driven tools, to align perfectly with your ambitions, learning pace, and style.
@@ -91,14 +91,14 @@ function Login() {
               />
             </div>
           </Page>
-          <div
-            className='w-full z-0 -mt-64 relative'
-          >
-            <img
-              src='/homebottom.png'
-              className='w-full'
+          <div className='w-full -mt-64 relative'>
+            <img src='/homebottom.png' className='w-full' />
+            <Button
+              buttonText={'Join Now'}
+              containerClass={'absolute left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%]'}
+              buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'}
+              onClick={demoUser}
             />
-            <Button buttonText={'Join Now'} containerClass={'absolute z-20 left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%]'} buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
           </div>
         </main>
       )}
@@ -110,13 +110,13 @@ function Login() {
   //         <section
   //           className='center box-border h-full w-96 bg-black left-0 top-0 bottom-0 mx-0 flex flex-col relative overflow-hidden'
   //         >
-  //           <AnimatePresence mode='wait'>
-  //             {showLoginForm ? (
-  //               <LoginFormModal key='1' />
-  //             ) : (
-  //               <SignupFormModal key='2' />
-  //             )}
-  //           </AnimatePresence>
+  // <AnimatePresence mode='wait'>
+  //   {showLoginForm ? (
+  //     <LoginFormModal key='1' />
+  //   ) : (
+  //     <SignupFormModal key='2' />
+  //   )}
+  // </AnimatePresence>
   //           <button className='modal-button my-4 bg-gray-300 hover:bg-white w-auto' onClick={handleMouseClick}>Demo User</button>
   //           <button className='self-end absolute bottom-0 pr-4 pb-4 text-gray-200 hover:text-gray-600 w-auto' onClick={showForm}>{showLoginForm ? 'Create an account' : 'Already a member? Sign in'}</button>
   //         </section>

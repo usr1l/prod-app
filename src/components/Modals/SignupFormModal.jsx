@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkSignup } from "@store/session";
 import { useModal } from "@context/Modal";
-import { SlideUpTransition } from "@components/Transition";
 import InputDiv from "@components/InputDiv";
 import { useRouter } from "next/navigation";
 import './modals.css';
@@ -27,14 +26,14 @@ function SignupFormModal({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = dispatch(thunkSignup({ email, password, username, firstname, lastname }));
+    dispatch(thunkSignup({ email, password, username, firstname, lastname }))
+      .then(() => closeModal());
   };
 
   return (
     <div
       key={key}
       className={`modal ${className}`}>
-      <h1 className="modal-header">Create An Account</h1>
       <form className="modal-form" onSubmit={handleSubmit}>
         <ul className="modal-errors">
           {Object.entries(errors).map(([ err, errMsg ], idx) => (
@@ -116,6 +115,4 @@ function SignupFormModal({
   );
 }
 
-const WrappedSignupFormModal = SlideUpTransition(SignupFormModal);
-
-export default WrappedSignupFormModal;
+export default SignupFormModal;
