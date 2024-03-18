@@ -26,11 +26,7 @@ function Login() {
   }, [ isAuthenticated, router ]);
 
   const demoUser = () => {
-    dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }))
-  };
-
-  const showForm = () => {
-    setShowLoginForm(!showLoginForm);
+    dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
   };
 
   return (

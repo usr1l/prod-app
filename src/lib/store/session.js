@@ -1,7 +1,6 @@
 'use client'
 
-import axios from "axios";
-import { createSlice, createAsyncThunk, unwrapResult } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // session initial state
 const initialState = {
@@ -55,10 +54,11 @@ export const thunkAuthenticate = createAsyncThunk(
     const res = await response.json();
     if (response.ok) {
       dispatch(authenticate(res));
+      dispatch(handleError(null));
       return;
     } else {
       dispatch(handleError(res.errors));
-      return;
+      return res.errors;
     }
   }
 );
@@ -77,6 +77,7 @@ export const thunkSignup = createAsyncThunk(
 
     const res = await response.json();
     if (response.ok) {
+      dispatch(handleError(null));
       dispatch(authenticate(res));
       return;
     } else {
@@ -95,6 +96,7 @@ export const thunkLogout = createAsyncThunk(
     });
 
     if (response.ok) {
+      dispatch(handleError(null));
       dispatch(logout());
       return;
     } else {
