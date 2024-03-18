@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request
 from api.models import User, db
 from api.forms import LoginForm, SignUpForm
 from flask_login import login_user, logout_user, current_user

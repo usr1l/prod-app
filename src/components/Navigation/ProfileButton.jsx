@@ -4,9 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import OpenModalButton from "../Button/OpenModalButton";
-import LoginFormModal from "../Modals/LoginFormModal";
-import SignupFormModal from "../Modals/SignupFormModal";
 import IconLabel from "@components/IconLabel";
 import { thunkLogout } from "@lib/store/session";
 import { useRouter } from "next/navigation";
@@ -43,7 +40,7 @@ export default function ProfileButton({ user }) {
     return;
   };
   //  + (showMenu ? "" : " hidden")
-  const ulClassName = "flex flex-col absolute top-24 right-4 z-20 border-black border-3 box-border w-64 bg-white h-auto min-h-36 p-4 shadow-top-left-light";
+  const ulClassName = "flex flex-col absolute rounded-2xl top-28 right-6 z-20 box-border w-64 bg-white h-auto min-h-36 p-4 shadow-top-left-light";
   const closeMenu = () => setShowMenu(false);
 
   return (
@@ -51,31 +48,16 @@ export default function ProfileButton({ user }) {
       <button className="flex z-20 justify-center items-center box-border p-2" onClick={openMenu} >
         <FontAwesomeIcon size="2x" icon={faUser} />
       </button>
-      <div className={ulClassName} ref={ulRef}>
-        {user ? (
+      {user && showMenu && (
+        <div className={ulClassName} ref={ulRef}>
+          <IconLabel labelText={user.firstname} />
+          <IconLabel labelText={user.username} />
+          <IconLabel labelText={user.email} />
           <div>
-            <IconLabel labelText={user.firstname} />
-            <IconLabel labelText={user.username} />
-            <IconLabel labelText={user.email} />
-            <div>
-              <button onClick={handleLogout}>Log Out</button>
-            </div>
+            <button onClick={handleLogout}>Log Out</button>
           </div>
-        ) : (
-          <>
-            <OpenModalButton
-              buttonText="Log In"
-              onItemClick={closeMenu}
-              modalComponent={<LoginFormModal />}
-            />
-            <OpenModalButton
-              buttonText="Sign Up"
-              onItemClick={closeMenu}
-              modalComponent={<SignupFormModal />}
-            />
-          </>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

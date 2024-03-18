@@ -9,7 +9,6 @@ import { RegisterModal } from "@components/Modals";
 import '@app/globals.css';
 
 export default function Navigation({ sessionUser }) {
-
   return (
     <nav
       className="flex justify-between w-full shadow-lg box-border sticky h-24 bg-white top-0 right-0 left-0 z-40 px-12"

@@ -139,6 +139,7 @@ function SignupFormModal({
         <button
           className="modal-button my-4 bg-gray-300 hover:bg-white"
           type="submit"
+          disabled={disabled}
         >Submit</button>
       </form>
     </div>
