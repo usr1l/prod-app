@@ -62,5 +62,6 @@
     margin-bottom: 2px;
     display: flex;
     align-items: center;
+    font-size: 12px;
   }
 }

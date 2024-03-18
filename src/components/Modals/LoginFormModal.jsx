@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkLogin } from "@lib/store";
 import { useModal } from "../../context/Modal";
@@ -15,12 +15,24 @@ function LoginFormModal({
   const [ email, setEmail ] = useState("");
   const [ password, setPassword ] = useState("");
   const [ errors, setErrors ] = useState({});
+  const [ disabled, setDisabled ] = useState(true);
   const { closeModal } = useModal();
+
+  useEffect(() => {
+    if (!email || !password || errors.length) setDisabled(true)
+    else setDisabled(false)
+  }, [ email, password ])
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(thunkLogin({ email, password }))
-      .then(() => closeModal());
+      .then((data) => {
+        if (data) setErrors(data.payload)
+        else {
+          setErrors({});
+          closeModal();
+        };
+      });
   };
 
   return (
@@ -51,6 +63,7 @@ function LoginFormModal({
           />
         </InputDiv>
         <button
+          disabled={disabled}
           className="modal-button my-4 bg-gray-300 hover:bg-white"
           type="submit"
         >Log In</button>

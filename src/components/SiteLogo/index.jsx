@@ -13,7 +13,7 @@ function SiteLogo({
   fill
 }) {
   return (
-    <Link href='/' className="flex items-center justify-center h-full box-border min-w-logo ml-2">
+    <Link href='/' className="flex items-center justify-center h-full box-border min-w-logo">
       <Image
         priority
         height={height}
