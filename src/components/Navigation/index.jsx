@@ -35,12 +35,12 @@ export default function Navigation({ sessionUser }) {
           <>
             <OpenModalButton
               buttonText={'Login'}
-              buttonClass={'hover:bg-zinc-200 w-24 mr-4'}
+              buttonClass={'hover:bg-zinc-200 w-24 mr-4 rounded-xl'}
               modalComponent={<RegisterModal signUp={false} />}
             />
             <OpenModalButton
               buttonText={'Sign Up'}
-              buttonClass={'bg-blue-300 w-24 hover:bg-blue-400'}
+              buttonClass={'bg-blue-300 w-24 hover:bg-blue-400 rounded-xl shadow-md'}
               modalComponent={<RegisterModal signUp={true} />}
             />
           </>

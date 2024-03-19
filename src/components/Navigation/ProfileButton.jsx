@@ -34,15 +34,19 @@ export default function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [ showMenu ]);
 
+  const toGeneratePage = () => {
+    router.push('/user/generate');
+    setShowMenu(false);
+  };
+
   const handleLogout = async (e) => {
     await dispatch(thunkLogout());
     router.push("/login");
     return;
   };
-  //  + (showMenu ? "" : " hidden")
+
   const ulClassName = "flex flex-col absolute rounded-2xl top-28 right-6 z-20 box-border min-w-[300px] bg-white h-auto shadow-top-left-light py-4 items-start";
   const modalButtonClass = "w-full pt-6 items-center text-[1.5rem]";
-  const closeMenu = () => setShowMenu(false);
 
   return (
     <div className="flex justify-center items-center">
@@ -63,6 +67,7 @@ export default function ProfileButton({ user }) {
             buttonText={'Generate'}
             fontAwesomeIcon={faCircleExclamation}
             imgClass={'mr-6 ml-2'}
+            onClick={toGeneratePage}
           />
           <Button
             containerClass={'w-full flex items-center justify-center py-4 border-t-gray-300 border-t-2 mt-4 text-purple-400'}
