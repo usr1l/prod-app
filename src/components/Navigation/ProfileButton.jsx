@@ -45,8 +45,8 @@ export default function ProfileButton({ user }) {
     return;
   };
 
-  const ulClassName = "flex flex-col absolute rounded-2xl top-28 right-6 z-20 box-border min-w-[300px] bg-white h-auto shadow-top-left-light py-4 items-start";
-  const modalButtonClass = "w-full pt-6 items-center text-[1.5rem]";
+  const ulClassName = "flex flex-col absolute rounded-2xl top-28 right-6 z-20 box-border min-w-[300px] bg-white h-auto shadow-lg py-4 items-start border-gray-200 border-2";
+  const modalButtonClass = "w-full my-2 items-center text-[1rem] text-gray-500";
 
   return (
     <div className="flex justify-center items-center">
@@ -55,11 +55,11 @@ export default function ProfileButton({ user }) {
       </button>
       {user && showMenu && (
         <div className={ulClassName} ref={ulRef}>
-          <div className="w-full h-full flex items-center py-4 border-b-gray-300 border-b-2">
+          <div className="w-full h-full flex items-center py-3 border-b-gray-100 border-b-2">
             <FontAwesomeIcon size="3x" icon={faUser} className="mx-6" />
             <div className="flex flex-col">
-              <div className="font-semibold text-[1.5rem]">{user.username}</div>
-              <div>{user.email}</div>
+              <div className="font-semibold text-[16px]">{user.username}</div>
+              <div className="text-[12px]">{user.email}</div>
             </div>
           </div>
           <Button
@@ -70,8 +70,8 @@ export default function ProfileButton({ user }) {
             onClick={toGeneratePage}
           />
           <Button
-            containerClass={'w-full flex items-center justify-center py-4 border-t-gray-300 border-t-2 mt-4 text-purple-400'}
-            buttonClass={'w-full text-[1.5rem]'}
+            containerClass={'w-full flex items-center justify-center mt-4 text-purple-400'}
+            buttonClass={'w-full text-[1rem]'}
             buttonText={'Logout'}
             onClick={handleLogout}
           />
