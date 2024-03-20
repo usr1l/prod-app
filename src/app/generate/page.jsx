@@ -13,7 +13,7 @@ function Generate() {
         >Powered by AI</div>
       </h1>
       <div
-        className=''
+        className='w-auto'
       ></div>
     </div>
   )

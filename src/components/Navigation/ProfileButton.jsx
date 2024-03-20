@@ -35,7 +35,7 @@ export default function ProfileButton({ user }) {
   }, [ showMenu ]);
 
   const toGeneratePage = () => {
-    router.push('/user/generate');
+    router.push('/generate');
     setShowMenu(false);
   };
 
