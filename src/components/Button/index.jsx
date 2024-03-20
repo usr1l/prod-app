@@ -1,6 +1,7 @@
 import React from 'react';
 import OpenModalButton from './OpenModalButton';
 import '@app/globals.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Button = ({
   buttonText,
@@ -14,7 +15,8 @@ const Button = ({
   rightIcon,
   containerClass,
   imgClass,
-  containerOnClick
+  containerOnClick,
+  fontAwesomeIcon
 }) => {
 
   return (
@@ -26,12 +28,15 @@ const Button = ({
           transitionDuration: '0.3s',
           transformStyle: 'ease-in-out',
         }}
-        className={`flex gap-1 justify-center box-border px-4 py-2 text-base rounded-3xl text-center whitespace-nowrap ${buttonClass}`}
+        className={`flex gap-1 justify-center box-border px-4 py-2 text-base rounded-xl text-center whitespace-nowrap ${buttonClass}`}
         onClick={onClick}
         type={type}
         disabled={disableButton || false}
         value={value}
       >
+        {fontAwesomeIcon && (
+          <FontAwesomeIcon icon={fontAwesomeIcon} size='1x' className={`${imgClass}`} />
+        )}
         {icon && !rightIcon && (
           <img
             src={icon}

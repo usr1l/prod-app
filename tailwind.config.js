@@ -16,7 +16,8 @@ module.exports = {
       backgroundColor: {
         "sage": "rgb(138, 154, 91)",
         "modal": "rgba(0, 0, 0, 0.7)",
-        "site-black": "#1C1C1E"
+        "site-black": "#1C1C1E",
+        "site-purple": "#7B70D1"
       },
       boxShadow: {
         "top-left-light": "-6px -6px 12px 6px rgb(0 0 0 / .2)",
