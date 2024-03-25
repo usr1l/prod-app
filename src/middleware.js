@@ -1,8 +1,11 @@
-'use client'
-
-import { NextResponse } from "next/server"
-
 export async function middleware(req) {
+  // validate the user is authenticated
+  // const verifiedToken = //check for auth
+  // const { origin } = req.nextUrl;
+  console.log("middleware", req);
 
-  return NextResponse.next();
+  // redirect if the token is invalid
+  // if (!verifiedToken) {
+  // return NextResponse.redirect(`/login`);
+  // }
 }

@@ -4,7 +4,7 @@ import React from 'react'
 import Navigation, { BottomNav } from '@components/Navigation';
 import Page from '@components/Page';
 import AuthLayout from './AuthLayout';
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider, getSession } from 'next-auth/react';
 import { useSelector } from 'react-redux';
 
 function App({ children }) {
@@ -16,7 +16,8 @@ function App({ children }) {
   //     document.documentElement.style.setProperty('--vh', `${vh}px`);
   //   });
   // };
-
+  const session = getSession();
+  // console.log("session", session);
   return (
     <SessionProvider>
       <Navigation sessionUser={user} />
