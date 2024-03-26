@@ -16,7 +16,7 @@ function App({ children }) {
   //     document.documentElement.style.setProperty('--vh', `${vh}px`);
   //   });
   // };
-  const session = getSession();
+  // const session = getSession();
   // console.log("session", session);
   return (
     <SessionProvider>

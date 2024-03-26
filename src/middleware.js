@@ -1,11 +1,17 @@
-export async function middleware(req) {
-  // validate the user is authenticated
-  // const verifiedToken = //check for auth
-  // const { origin } = req.nextUrl;
-  console.log("middleware", req);
+import { getSession } from "next-auth/react";
+import { NextResponse } from "next/server";
 
-  // redirect if the token is invalid
-  // if (!verifiedToken) {
-  // return NextResponse.redirect(`/login`);
-  // }
+export default async function middleware(req, res) {
+  const session = await getSession();
+
+  // check first if url starts with login, if it does\
+
+  if (!session && !req.nextUrl.pathname.startsWith('/login')) {
+    return NextResponse.redirect(new URL('/login', req.url));
+  }
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: [ '/((?!api|_next/static|_next/image|.*\\.png$).*)' ],
 }
