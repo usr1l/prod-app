@@ -6,12 +6,11 @@ import configureAppStore, { thunkAuthenticate } from "../lib/store/index";
 
 export default function StoreProvider({ children }) {
   const storeRef = useRef();
-  let sessionState = null;
   if (!storeRef.current) {
     storeRef.current = configureAppStore();
 
     // use features for data initialization
-    storeRef.current.dispatch(thunkAuthenticate())
+    storeRef.current.dispatch(thunkAuthenticate());
   };
 
   return (

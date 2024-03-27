@@ -1,19 +1,26 @@
 'use client';
 
 import AuthProtect from '@AuthProtect';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@components/Button';
 import '@app/globals.css';
 
 function Generate() {
   const [ textInput, setTextInput ] = useState('');
   const [ fileInput, setFileInput ] = useState('');
+  const [ textCount, setTextCount ] = useState(0);
+
+  useEffect(() => {
+    const len = textInput.length;
+    setTextCount(len);
+  }, [ textInput ]);
+
 
   const navButtonClass = 'px-0 text-[16px]';
   const navContainerClass = 'mr-4 py-2 box-border opacity-60 border-b-2 flex cursor-pointer ';
   return (
     <>
-      <div className='w-auto m-4 border-b-2 border-gray-300 shadow-md min-w-[900px] min-h-[890px] flex flex-col'>
+      <div className='w-auto m-4 border-b-2 border-gray-300 shadow-md min-w-[900px] min-h-[880px] flex flex-col'>
         <h1 className='h-[100px] w-auto px-10 flex items-center font-bold shadow-lg'>
           MAGIC GENERATOR
           <div className='rounded-3xl bg-site-purple w-28 flex justify-center items-center mx-6 bg-opacity-20 text-[13px] font-normal'>
@@ -39,12 +46,15 @@ function Generate() {
             </nav>
             <div className='w-auto mt-4'>
               <textarea
-                className="w-full h-40 bg-site-black bg-opacity-10 rounded-xl focus:outline-none p-4"
+                className="w-full bg-site-black bg-opacity-10 rounded-xl focus:outline-none p-4 h-[390px]"
                 placeholder="Paste text here."
                 aria-label="Paste text here"
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
               ></textarea>
+              <div className='w-auto flex'>
+                <div className='ml-auto text-[12px] font-semibold'>{`${textCount}/60,000 characters`}</div>
+              </div>
             </div>
           </div>
           <div className='w-[40%] flex flex-col items-center relative'>

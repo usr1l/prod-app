@@ -1,25 +1,33 @@
 'use client';
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navigation, { BottomNav } from '@components/Navigation';
 import Page from '@components/Page';
-import AuthLayout from './AuthLayout';
-import { SessionProvider, getSession } from 'next-auth/react';
 import { useSelector } from 'react-redux';
 
 function App({ children }) {
+  const [ isLoaded, setIsLoaded ] = useState(false);
+  const loaded = useSelector(state => state.session.isLoaded);
+
+  useEffect(() => {
+    if (loaded) setIsLoaded(true);
+    else setIsLoaded(false);
+  }, [ loaded ]);
+
   const { user } = useSelector(state => state.session);
 
   return (
-    <SessionProvider>
-      <Navigation sessionUser={user} />
-      <AuthLayout>
-        <Page >
-          {children}
-          <BottomNav />
-        </Page>
-      </AuthLayout>
-    </SessionProvider>
+    <>
+      {isLoaded && (
+        <>
+          <Navigation sessionUser={user} />
+          <Page >
+            {children}
+            <BottomNav />
+          </Page>
+        </>
+      )}
+    </>
   )
 };
 

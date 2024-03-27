@@ -6,6 +6,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
   isAuthenticated: false,
   user: null,
+  isLoaded: false,
   errors: null
 };
 
@@ -114,14 +115,17 @@ const sessionSlice = createSlice({
       state.isAuthenticated = true;
       state.user = action.payload;
       state.errors = null;
+      state.isLoaded = true;
     },
     handleError: (state, action) => {
       state.errors = action.payload;
+      state.isLoaded = true;
     },
     logout: (state, action) => {
       state.isAuthenticated = false;
       state.user = null;
       state.errors = null;
+      state.isLoaded = true;
     },
     test: (state, action) => {}
 
