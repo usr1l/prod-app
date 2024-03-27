@@ -25,12 +25,7 @@ function Login() {
   }, [ isAuthenticated, router ]);
 
 
-  const demoUser = async () => {
-    const data = await dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
-    if (!data) {
-      router.push('/');
-    };
-  };
+  const demoUser = () => dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
 
   return (
     <>
