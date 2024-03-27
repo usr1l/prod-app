@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { thunkLogin } from '../../lib/store/index';
 import { FlipCard } from '../../components/Card';
@@ -15,19 +15,17 @@ function Login() {
   const router = useRouter();
 
   const { isAuthenticated } = useSelector(state => state.session);
-  const [ isLoaded, setIsLoaded ] = useState(false);
-  const [ showLoginForm, setShowLoginForm ] = useState(true);
+  const [ isLoaded, setIsLoaded ] = useState(true);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isAuthenticated) {
       setIsLoaded(false);
       router.push('/');
     } else setIsLoaded(true);
   }, [ isAuthenticated, router ]);
 
-  const demoUser = () => {
-    dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
-  };
+
+  const demoUser = () => dispatch(thunkLogin({ email: 'tony@app.io', password: 'tonyzheng' }));
 
   return (
     <>

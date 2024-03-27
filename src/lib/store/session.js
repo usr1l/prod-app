@@ -111,7 +111,6 @@ const sessionSlice = createSlice({
   initialState: initialState,
   reducers: {
     authenticate: (state, action) => {
-      console.log(action.payload, 'payload')
       state.isAuthenticated = true;
       state.user = action.payload;
       state.errors = null;
