@@ -20,7 +20,9 @@ export default function Navigation({ sessionUser }) {
         className="h-full flex items-center box-border mr-auto"
       >
         <SearchBar placeholder={'Search'} icon={'/search.png'} containerClass={'w-[max(30vw,16rem)]'} />
-        <Button onClick={() => router.push('/generate')} buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10 disabled:bg-zinc-500 px-4 py-2 '} />
+        {sessionUser && (
+          <Button onClick={() => router.push('/generate')} buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10 disabled:bg-zinc-500 px-4 py-2 '} />
+        )}
       </div>
       <div
         className="h-full flex items-center box-border">
