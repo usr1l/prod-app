@@ -36,37 +36,37 @@ Migrate(app, db)
 CORS(app, supports_credentials=True)
 
 # # create tables in the vercel postgres database
-# if os.environ.get('FLASK_ENV') == 'production':
-#     with app.app_context():
-#         db.create_all()
+if os.environ.get('FLASK_ENV') == 'production':
+    with app.app_context():
+        db.create_all()
 
-#         # first unseed all tables
-#         undo_notes()
-#         undo_tasks()
-#         undo_flashcards()
-#         undo_decks()
-#         undo_users()
+        # first unseed all tables
+        undo_notes()
+        undo_tasks()
+        undo_flashcards()
+        undo_decks()
+        undo_users()
 
-#         # then seed all tables
-#         seed_users()
-#         seed_decks()
-#         seed_flashcards()
-#         seed_tasks()
-#         seed_notes()
+        # then seed all tables
+        seed_users()
+        seed_decks()
+        seed_flashcards()
+        seed_tasks()
+        seed_notes()
 
-#         # first unseed all tables
-#         undo_notes()
-#         undo_tasks()
-#         undo_flashcards()
-#         undo_decks()
-#         undo_users()
+        # first unseed all tables
+        undo_notes()
+        undo_tasks()
+        undo_flashcards()
+        undo_decks()
+        undo_users()
 
-#         # then seed all tables
-#         seed_users()
-#         seed_decks()
-#         seed_flashcards()
-#         seed_tasks()
-#         seed_notes()
+        # then seed all tables
+        seed_users()
+        seed_decks()
+        seed_flashcards()
+        seed_tasks()
+        seed_notes()
 
 
 @app.route('/api/hello', methods=['GET'])
