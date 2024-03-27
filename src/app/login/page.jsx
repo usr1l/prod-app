@@ -43,7 +43,7 @@ function Login() {
             <h1 className="text-[max(4vw,2rem)] font-bold tracking-tighter text-center mb-2 ">
               The New Era of Learning: <br /> Personal, Powerful, and Purposeful
             </h1>
-            <Button onClick={demoUser} containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'} />
+            <Button onClick={demoUser} containerClass={'h-[max(12vw,6rem)]'} buttonText={'Join Now'} buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)] px-4 py-2'} />
           </div>
           <Page className="text-left mt-40 relative w-[1140px] flex flex-col items-center justify-center z-10">
             <h2 className="text-[22px] leading-8 mb-4 px-20 w-[1010px] font-semibold">
@@ -90,7 +90,7 @@ function Login() {
             <Button
               buttonText={'Join Now'}
               containerClass={'absolute left-[50%] top-[75%] translate-x-[-50%] translate-y-[-50%]'}
-              buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)]'}
+              buttonClass={'justify-center items-center px-9 py-3.5 text-[max(1vw,1.5rem)] text-center text-white rounded-3xl shadow-sm bg-site-black h-[max(3vw,2.5rem)] w-[max(18vw,6rem)] px-4 py-2'}
               onClick={demoUser}
             />
           </div>

@@ -20,7 +20,7 @@ export default function Navigation({ sessionUser }) {
         className="h-full flex items-center box-border mr-auto"
       >
         <SearchBar placeholder={'Search'} icon={'/search.png'} containerClass={'w-[max(30vw,16rem)]'} />
-        <Button onClick={() => router.push('/generate')} buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10 disabled:bg-zinc-500'} />
+        <Button onClick={() => router.push('/generate')} buttonText={'Generate'} icon={'/sparkles.png'} buttonClass={'shadow-sm bg-zinc-900 text-white h-10 disabled:bg-zinc-500 px-4 py-2 '} />
       </div>
       <div
         className="h-full flex items-center box-border">
@@ -35,12 +35,12 @@ export default function Navigation({ sessionUser }) {
           <>
             <OpenModalButton
               buttonText={'Login'}
-              buttonClass={'hover:bg-zinc-200 w-24 mr-4'}
+              buttonClass={'hover:bg-zinc-200 w-24 mr-4 px-4 py-2'}
               modalComponent={<RegisterModal signUp={false} />}
             />
             <OpenModalButton
               buttonText={'Sign Up'}
-              buttonClass={'bg-blue-300 w-24 hover:bg-blue-400 shadow-md'}
+              buttonClass={'bg-blue-300 w-24 hover:bg-blue-400 shadow-md px-4 py-2 '}
               modalComponent={<RegisterModal signUp={true} />}
             />
           </>

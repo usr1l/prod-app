@@ -66,11 +66,11 @@ export default function ProfileButton({ user }) {
             buttonClass={modalButtonClass}
             buttonText={'Generate'}
             fontAwesomeIcon={faCircleExclamation}
-            imgClass={'mr-6 ml-2'}
+            imgClass={'mr-6 ml-2 px-4 py-2'}
             onClick={toGeneratePage}
           />
           <Button
-            containerClass={'w-full flex items-center justify-center mt-4 text-purple-400'}
+            containerClass={'w-full flex items-center justify-center mt-4 text-purple-400 px-4 py-2'}
             buttonClass={'w-full text-[1rem]'}
             buttonText={'Logout'}
             onClick={handleLogout}

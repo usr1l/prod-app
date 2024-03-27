@@ -16,10 +16,6 @@ export default function AuthProtect(Component) {
     }, []);
 
 
-    if (!auth) {
-      return null;
-    }
-
     return <Component {...props} />;
   };
 }

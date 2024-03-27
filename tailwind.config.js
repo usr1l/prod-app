@@ -30,6 +30,7 @@ module.exports = {
       },
       borderColor: {
         "site-black": "#1C1C1E",
+        "site-purple": "#7B70D1",
       },
       textColor: {
         "sage": "rgb(138, 154, 91)",
