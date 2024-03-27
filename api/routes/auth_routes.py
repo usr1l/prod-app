@@ -36,6 +36,7 @@ def login():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
+        print('success', user.to_dict())
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
@@ -85,5 +86,6 @@ def session_user():
     Returns the session user
     """
     if current_user.is_authenticated:
+        print('here', current_user.to_dict())
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}, 401

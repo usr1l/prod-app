@@ -1,4 +1,8 @@
+'use client';
+
+import AuthProtect from '@AuthProtect';
 import React from 'react';
+
 
 function Generate() {
   return (
@@ -19,4 +23,5 @@ function Generate() {
   )
 };
 
-export default Generate;
+
+export default AuthProtect(Generate);

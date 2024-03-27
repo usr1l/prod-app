@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import AuthProtect from '@AuthProtect';
 import './globals.css';
 
 function HomePage() {
@@ -12,4 +13,4 @@ function HomePage() {
   );
 };
 
-export default HomePage;
+export default AuthProtect(HomePage);

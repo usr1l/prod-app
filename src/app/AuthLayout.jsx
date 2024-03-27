@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+// import { useEffect } from 'react';
+// import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 
 // for protected routes, authenticated access
@@ -11,13 +11,13 @@ export default function AuthLayout({ children }) {
   // has data, status, and update
   // auto fetches from /api/auth/session in the backend
   const { data, status } = useSession();
-  const router = useRouter();
+  // const router = useRouter();
 
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/login');
-    }
-  }, [ status, router ]);
+  // useEffect(() => {
+  //   if (status === 'unauthenticated') {
+  //     router.push('/login');
+  //   }
+  // }, [ status, router ]);
 
   return (
     <>
