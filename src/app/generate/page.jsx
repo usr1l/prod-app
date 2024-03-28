@@ -4,6 +4,7 @@ import AuthProtect from '@AuthProtect';
 import React, { useEffect, useState } from 'react';
 import Button from '@components/Button';
 import '@app/globals.css';
+import Checkbox from '@components/Modals/CheckBox';
 
 function Generate() {
   const [ textInput, setTextInput ] = useState('');
@@ -60,6 +61,8 @@ function Generate() {
           <div className='w-[40%] flex flex-col items-center relative'>
             <div className='w-[70%] border-2 border-black'>
               <h1 className=''>Powered by AI</h1>
+              <Checkbox label='FlashCards' />
+              <Checkbox label='Summary/Outline' />
             </div>
           </div>
         </div>

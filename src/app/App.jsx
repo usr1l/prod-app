@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import Navigation, { BottomNav } from '@components/Navigation';
 import Page from '@components/Page';
 import { useSelector } from 'react-redux';
@@ -9,7 +9,7 @@ function App({ children }) {
   const [ isLoaded, setIsLoaded ] = useState(false);
   const loaded = useSelector(state => state.session.isLoaded);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (loaded) setIsLoaded(true);
     else setIsLoaded(false);
   }, [ loaded ]);
